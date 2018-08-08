@@ -23,9 +23,14 @@
           <el-input v-model="titletxt" placeholder="请输入标题"></el-input>
           <el-input v-model="carbon" placeholder="请输入副本"></el-input>
         </div>
-        <div v-else>
-          <el-input v-model="titletxt" placeholder="请输入标题"></el-input>
-          <el-input v-model="carbon" placeholder="请输入副本"></el-input>
+        <div class="up-banner-bg" v-else>
+        <el-upload
+            class="upload-demo-title"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :file-list="fileList2"
+            list-type="picture">
+        <el-button size="small" type="primary">点击上传</el-button>
+        </el-upload>
         </div>
       </div>
   </div>
@@ -38,7 +43,19 @@ export default {
       isShowTopColor: true,
       radio: 1,
       titletxt: '',
-      carbon: ''
+      carbon: '',
+      fileList2: [
+        {
+          name: 'food.jpeg',
+          url:
+            'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+        },
+        {
+          name: 'food2.jpeg',
+          url:
+            'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+        }
+      ]
     }
   },
   computed: {
@@ -51,6 +68,19 @@ export default {
 }
 </script>
 <style lang="scss">
+.upload-demo-title {
+  height: 80px;
+  width: 80% !important;
+  margin-left: 10%;
+  background: rgba(0, 0, 0, 0.57);
+  button {
+    width: 50% !important;
+    margin-top: 24px;
+  }
+  ul {
+    margin-top: 18%;
+  }
+}
 .bgset {
   width: 100%;
   height: 100%;

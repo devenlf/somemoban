@@ -12,7 +12,7 @@
   </div>
   <div class="upload-demo">
     <el-upload
-        class="upload-demo"
+        class="upload-demo-bg"
         action="https://jsonplaceholder.typicode.com/posts/"
         :file-list="fileList2"
         list-type="picture">
@@ -23,7 +23,7 @@
   </div>
 </template>
 <style lang="scss">
-.el-upload {
+.upload-demo-bg {
   width: 100%;
   button {
     width: 80%;

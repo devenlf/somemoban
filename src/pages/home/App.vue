@@ -20,8 +20,8 @@
     </div></el-col>
   <el-col :span="5"><div class="grid-content bg-right">
       <v-bgimg v-show="isShow(0)"></v-bgimg>
-      <v-code v-show="isShow(1)"></v-code>
-      <v-logo v-show="isShow(2)"></v-logo>
+      <v-logo v-show="isShow(1)"></v-logo>
+      <v-code v-show="isShow(2)"></v-code>
       <v-titleBanner v-show="isShow(3)"></v-titleBanner>
       <v-topcolor v-show="isShow(4)"></v-topcolor>
     </div></el-col>
@@ -30,11 +30,11 @@
 
 
 <script>
-import bgimg from './components/bgimg'
-import code from './components/code'
-import logo from './components/logo'
-import titleBanner from './components/titleBanner'
-import topcolor from './components/topcolor'
+import bgimg from './components/bgimg';
+import code from './components/code';
+import logo from './components/logo';
+import titleBanner from './components/titleBanner';
+import topcolor from './components/topcolor';
 
 export default {
   data() {
