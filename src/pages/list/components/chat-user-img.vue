@@ -5,13 +5,13 @@
     <div class="head"><span>头像设置</span></div>
     <div class="choseBg">
       <span class="title">显示用户头像</span>
-      <el-switch
+      <span class="cueColor" v-if="isShowTopColor">显示</span>
+      <span class="cueColor" v-else>隐藏</span>
+        <el-switch
         v-model="isShowTopColor"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
-      <span class="cueColor" v-if="isShowTopColor">显示</span>
-      <span class="cueColor" v-else>隐藏</span>
       </div>
        <p class="chooseStyle">形状</p>
         <div class="round img-user">
@@ -40,6 +40,10 @@ export default {
 }
 </script>
 <style lang="scss">
+.chooseStyle{
+  font-size: 12px;
+  margin-left: 8%;
+}
 .upload-demo-code {
   margin-top: 10px;
   height: 120px;
@@ -56,13 +60,26 @@ export default {
     font-size: 13px;
   }
 }
+.choseBg {
+  min-width: 255px;
+  width: 100%;
+  height: 40px;
+  min-height: 40px;
+  background: #ededed;
+  color: #2e323e;
+  font-size: 14px;
+  span {
+    padding-top: 1.2%;
+    float: left;
+  }
+}
 .img-user{
   width: 76px;
   height: 76px;
   overflow: hidden;
   float: left;
   margin-top: 20px;
-  margin-left: 30px;
+  margin-left: 8%;
   img{
     height: 100%;
     width: 100%;
@@ -77,6 +94,7 @@ export default {
 .bgset {
   width: 100%;
   height: 100%;
+  min-width: 318px;
   background: #fafafa;
   box-shadow: -5px 0 9px 0 rgba(4, 0, 0, 0.17);
   overflow: hidden;
@@ -104,11 +122,12 @@ export default {
   color: #999;
   letter-spacing: 1px;
   margin: 1px;
+  float: right !important;
 }
 .el-switch {
-  margin-left: 30%;
+  margin-left: 38%;
   margin-top: 10px;
-  float: left;
+  float: right;
 }
 .el-radio-group {
   padding-left: 8%;
