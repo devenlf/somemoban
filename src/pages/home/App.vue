@@ -30,11 +30,11 @@
 
 
 <script>
-import bgimg from './components/bgimg';
-import code from './components/code';
-import logo from './components/logo';
-import titleBanner from './components/titleBanner';
-import topcolor from './components/topcolor';
+import bgimg from './components/bgimg'
+import code from './components/code'
+import logo from './components/logo'
+import titleBanner from './components/titleBanner'
+import topcolor from './components/topcolor'
 
 export default {
   data() {
