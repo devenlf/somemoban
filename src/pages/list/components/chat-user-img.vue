@@ -13,7 +13,13 @@
       <span class="cueColor" v-if="isShowTopColor">显示</span>
       <span class="cueColor" v-else>隐藏</span>
       </div>
-       
+       <p class="chooseStyle">形状</p>
+        <div class="round img-user">
+        <img src="../../../../static/image/user1.jpg" alt="">
+      </div>
+      <div class="square img-user">
+        <img src="../../../../static/image/user1.jpg" alt="">
+      </div>
   </div>
 </template>
 <script>
@@ -49,6 +55,24 @@ export default {
     width: 240%;
     font-size: 13px;
   }
+}
+.img-user{
+  width: 76px;
+  height: 76px;
+  overflow: hidden;
+  float: left;
+  margin-top: 20px;
+  margin-left: 30px;
+  img{
+    height: 100%;
+    width: 100%;
+  }
+}
+.round{
+  border-radius: 38px;
+}
+.square{
+  margin-left: 40px;
 }
 .bgset {
   width: 100%;

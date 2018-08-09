@@ -39,7 +39,7 @@
     display: block;
     height: 100%;
     line-height: 230%;
-    text-indent: 10%;
+    text-indent: 8%;
     font-weight: bold;
   }
 }
