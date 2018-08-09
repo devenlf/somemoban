@@ -20,8 +20,8 @@
           <el-radio :label="2">图片标题</el-radio>
         </el-radio-group>
         <div v-if="isShowText">
-          <el-input v-model="titletxt" placeholder="请输入标题" @input="changeData('titletxt',titletxt)"></el-input>
-          <el-input v-model="carbon" placeholder="请输入副本" @input="changeData('carbon',carbon)"></el-input>
+          <el-input v-model="titletxt" placeholder="请输入标题"></el-input>
+          <el-input v-model="carbon" placeholder="请输入副本"></el-input>
         </div>
         <div class="up-banner-bg" v-else>
         <el-upload
@@ -37,14 +37,13 @@
 </template>
 <script>
 export default {
-  props: ['bannerTxt'],
   data() {
     return {
       index: 4,
       isShowTopColor: true,
       radio: 1,
-      titletxt: this.bannerTxt.titletxt,
-      carbon: this.bannerTxt.carbon,
+      titletxt: '',
+      carbon: '',
       fileList2: [
         {
           name: 'food.jpeg',
@@ -64,18 +63,8 @@ export default {
       return this.radio === 1
     }
   },
-  created: function() {
-    console.log(this.bannerTxt)
-  },
-  methods: {
-    changeData(type, value) {
-      const data = {
-        type: type,
-        value: value
-      }
-      this.$emit('change', data)
-    }
-  }
+  created: function() {},
+  methods: {}
 }
 </script>
 <style lang="scss">

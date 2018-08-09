@@ -2,9 +2,9 @@
 
 <template>
   <div class="bgset">
-    <div class="head"><span>banner、标题 设置</span></div>
+    <div class="head"><span>Logo 设置</span></div>
     <div class="choseBg">
-      <span class="title">显示banner</span>
+      <span class="title">显示logo</span>
       <el-switch
         v-model="isShowTopColor"
         active-color="#409EFF"
@@ -13,38 +13,29 @@
       <span class="cueColor" v-if="isShowTopColor">显示</span>
       <span class="cueColor" v-else>隐藏</span>
       </div>
-      <div class="banner-type">
-        <p>banner种类</p>
-         <el-radio-group v-model="radio">
-          <el-radio :label="1">文字标题</el-radio>
-          <el-radio :label="2">图片标题</el-radio>
-        </el-radio-group>
-        <div v-if="isShowText">
-          <el-input v-model="titletxt" placeholder="请输入标题" @input="changeData('titletxt',titletxt)"></el-input>
-          <el-input v-model="carbon" placeholder="请输入副本" @input="changeData('carbon',carbon)"></el-input>
-        </div>
-        <div class="up-banner-bg" v-else>
+       <div class="up-banner-bg">
         <el-upload
-            class="upload-demo-title"
+            class="upload-demo-logo"
             action="https://jsonplaceholder.typicode.com/posts/"
             :file-list="fileList2"
             list-type="picture">
-        <el-button size="small" type="primary">点击上传</el-button>
-        </el-upload>
+        <el-button size="small" type="primary">更改</el-button>
+        <div slot="tip" class="el-upload__tip_code">支持格式：png，jpg，gif，logo</div>
+        <div slot="tip" class="el-upload__tip_code">上传尺寸：190px*96px</div>
+        <div slot="tip" class="el-upload__tip_code">图片大小：500KB以内</div>       
+         </el-upload>
         </div>
-      </div>
   </div>
 </template>
 <script>
 export default {
-  props: ['bannerTxt'],
   data() {
     return {
       index: 4,
       isShowTopColor: true,
       radio: 1,
-      titletxt: this.bannerTxt.titletxt,
-      carbon: this.bannerTxt.carbon,
+      titletxt: '',
+      carbon: '',
       fileList2: [
         {
           name: 'food.jpeg',
@@ -64,32 +55,28 @@ export default {
       return this.radio === 1
     }
   },
-  created: function() {
-    console.log(this.bannerTxt)
-  },
-  methods: {
-    changeData(type, value) {
-      const data = {
-        type: type,
-        value: value
-      }
-      this.$emit('change', data)
-    }
-  }
+  created: function() {},
+  methods: {}
 }
 </script>
 <style lang="scss">
-.upload-demo-title {
-  height: 80px;
-  width: 80% !important;
-  margin-left: 10%;
+.upload-demo-logo {
+  margin-top: 10px;
+  height: 120px;
+  width: 90%;
+  margin-left: 4%;
   background: rgba(0, 0, 0, 0.57);
   button {
     width: 50% !important;
-    margin-top: 24px;
+    margin-top: 38px;
+    margin-bottom: 50%;
   }
-  ul {
-    margin-top: 18%;
+  .el-upload__tip_code {
+    width: 100%;
+    font-size: 13px;
+  }
+  .el-upload{
+    height: 120px;
   }
 }
 .bgset {

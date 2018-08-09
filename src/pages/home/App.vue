@@ -11,7 +11,8 @@
         <img class="bgimg" src="../../../static/image/code.png" alt="">
     </div>
        <div class="banner" :class="{'styleborder':isShow(3)}"  @click="addClass(3)">
-      <h2>pg</h2>
+      <h2>{{bannerText.titletxt}}</h2>
+      <span>{{bannerText.carbon}}</span>
     </div>
     <div class="foreground" :class="{'styleborder':isShow(4)}"  @click="addClass(4)">
 
@@ -22,7 +23,7 @@
       <v-bgimg v-show="isShow(0)"></v-bgimg>
       <v-logo v-show="isShow(1)"></v-logo>
       <v-code v-show="isShow(2)"></v-code>
-      <v-titleBanner v-show="isShow(3)"></v-titleBanner>
+      <v-titleBanner v-show="isShow(3)" @change="changeTxt" :bannerTxt="bannerText"></v-titleBanner>
       <v-topcolor v-show="isShow(4)"></v-topcolor>
     </div></el-col>
   </el-row>
@@ -39,7 +40,11 @@ import topcolor from './components/topcolor'
 export default {
   data() {
     return {
-      current: 0
+      current: 0,
+      bannerText: {
+        titletxt: '1',
+        carbon: '2'
+      }
     }
   },
   created: function() {},
@@ -49,6 +54,9 @@ export default {
     },
     isShow(id) {
       return this.current === id
+    },
+    changeTxt(data) {
+      this.bannerText[data.type] = data.value
     }
   },
   components: {
@@ -103,10 +111,16 @@ body {
   height: 8%;
   top: 12%;
   left: 50%;
+  text-align: center;
   h2 {
     margin: 0px;
-    height: 100%;
-    text-align: center;
+    color: white;
+  }
+  span {
+    display: block;
+    margin-top: 10px;
+    color: white;
+    font-size: 18px;
   }
 }
 .bgimgby {
