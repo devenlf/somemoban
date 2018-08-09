@@ -5,10 +5,10 @@
     <div class="head"><span>时间设置</span></div>
     <div class="choseBg">
       <span class="title">显示时间消息</span>
-      <span class="cueColor" v-if="isShowTopColor">显示</span>
+      <span class="cueColor" v-if="isShowDate">显示</span>
       <span class="cueColor" v-else>隐藏</span>
       <el-switch
-        v-model="isShowTopColor"
+        v-model="isShowDate"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
@@ -43,7 +43,7 @@ export default {
   data() {
     return {
       index: 4,
-      isShowTopColor: true,
+      isShowDate: true,
       colorInit: '#ffffff',
       colorList: [
         { color: '#cccccc' },
