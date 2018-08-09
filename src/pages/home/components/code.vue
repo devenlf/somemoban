@@ -61,6 +61,7 @@ export default {
 </script>
 <style lang="scss">
 .upload-demo-code {
+  margin-top: 10px;
   height: 120px;
   width: 120px;
   margin-left: 4%;
