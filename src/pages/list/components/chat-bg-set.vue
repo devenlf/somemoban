@@ -56,13 +56,12 @@
 export default {
   data() {
     return {
-      index: 0,
+      index: 2,
       imgInfo: [
         { type: '默认', imgSrc: '../../../../static/image/chatListOne.png' },
         { type: '商务', imgSrc: '../../../../static/image/chatListTwo.png' },
         { type: '活泼', imgSrc: '../../../../static/image/chatListThree.png' },
         { type: '水墨中国', imgSrc: '../../../../static/image/chatListFour.png' }
-
       ]
     }
   },

@@ -63,7 +63,7 @@ export default {
         titletxt: '1',
         carbon: '2'
       },
-      type: 0,
+      type: 2,
       chatData: [
         {
           userimg: '../../../static/image/user0.jpg',
@@ -143,55 +143,6 @@ body {
   position: relative;
 }
 
-.chat-bg-0 {
-  .chat-bg {
-    border-radius: 6rem;
-    background: rgba($color: #ffffff, $alpha: 0.3);
-  }
-  .user-img {
-    border-radius: 2.5vw;
-  }
-}
-.chat-bg-1 {
-  .chat-bg {
-    background: rgba($color: #ffffff, $alpha: 0.3);
-  }
-}
-.chat-bg-2 {
-  .chat-bg {
-    border-radius: 6rem;
-    background: rgba($color: #ffffff, $alpha: 1);
-  }
-  .user-img {
-    border-radius: 2.5vw;
-  }
-}
-.chat-bg-3 {
-  .user-img {
-    border-radius: 2.5vw;
-    width: 11.2%;
-    height: 4vw;
-    left: 10%;
-  }
-  .user-name {
-    width: 28%;
-    height: 24%;
-    top: 19%;
-    left: 23%;
-  }
-  .chat-date {
-    width: 28%;
-    height: 24%;
-    top: 19%;
-    left: 55%;
-  }
-  .chat-content {
-    width: 60%;
-    height: 32%;
-    top: 50%;
-    left: 23%;
-  }
-}
 
 .chat-bg {
   position: absolute;
@@ -202,7 +153,7 @@ body {
 .user-img {
   position: absolute;
   width: 14%;
-  height: 5vw;
+  height: 74%;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 12%;
