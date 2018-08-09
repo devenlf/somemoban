@@ -5,10 +5,10 @@
     <div class="head"><span>头像设置</span></div>
     <div class="choseBg">
       <span class="title">显示用户头像</span>
-      <span class="cueColor" v-if="isShowTopColor">显示</span>
+      <span class="cueColor" v-if="isShowFaceImg">显示</span>
       <span class="cueColor" v-else>隐藏</span>
         <el-switch
-        v-model="isShowTopColor"
+        v-model="isShowFaceImg"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       index: 4,
-      isShowTopColor: true
+      isShowFaceImg: true
     }
   },
   computed: {
