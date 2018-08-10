@@ -156,8 +156,9 @@ export default {
     top: 0;
   }
   .el-color-picker__trigger {
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 }
 

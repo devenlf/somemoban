@@ -84,12 +84,7 @@ export default {
 }
 </script>
 <style lang="scss">
-// .chooseColor {
-//   width: 94%;
-//   margin: auto 10px;
-//   padding-top: 20px;
-//   min-width: 360px;
-// }
+
 .data-bg{
   .el-switch{
     margin-left: 0px
@@ -105,7 +100,6 @@ hr{
 }
 .addColor {
   position: relative;
-
   span {
     position: absolute;
     z-index: 90;
@@ -125,9 +119,10 @@ hr{
     z-index: 100;
     top: 0;
   }
-  .el-color-picker__trigger {
-    width: 1.8rem;
-    height: 1.8rem;
+ .el-color-picker__trigger {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 }
 .chooseColor {
