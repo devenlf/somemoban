@@ -3,7 +3,7 @@
 <template>
   <div class="bgset">
     <div class="head"><span>时间设置</span></div>
-    <div class="choseBg">
+    <div class="choseBg data-bg">
       <span class="title">显示时间消息</span>
       <span class="cueColor" v-if="isShowDate">显示</span>
       <span class="cueColor" v-else>隐藏</span>
@@ -15,9 +15,15 @@
       </div>
        <div class="chooseColor">
           <template v-for="(color,index) in colorList">
-            <div class="colorbox" :key="index" :style="{background:color.color}" @click="getColor(color)"></div>
+            <div class="colorbox" :key="index" :style="{background:color.color}" @click="getColor(color)">
+              <img src="../../../../static/image/user0.jpg" alt="">
+            </div>
           </template>
-          <el-color-picker  @change="setColor()" class="colorbox el-icon-plus" v-model="colorInit"></el-color-picker>
+          <div class="colorbox  addColor">
+            <img src="../../../../static/image/user0.jpg" alt="">
+               <span class="el-icon-plus"></span>
+               <el-color-picker  @change="setColor()"  v-model="colorInit"></el-color-picker>
+          </div>
           <div style="clear:both"></div>
       </div>
         <div class="block-bar">
@@ -78,11 +84,16 @@ export default {
 }
 </script>
 <style lang="scss">
-.chooseColor {
-  width: 94%;
-  margin: auto 10px;
-  padding-top: 20px;
-  min-width: 360px;
+// .chooseColor {
+//   width: 94%;
+//   margin: auto 10px;
+//   padding-top: 20px;
+//   min-width: 360px;
+// }
+.data-bg{
+  .el-switch{
+    margin-left: 0px
+  }
 }
 hr{
   margin-top: 5%;
@@ -92,31 +103,80 @@ hr{
   margin-left: 8%;
   font-size: 13px;
 }
+.addColor {
+  position: relative;
+
+  span {
+    position: absolute;
+    z-index: 90;
+    top: 0px;
+    left: 0px;
+    font-size: 200%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
+  .el-color-picker {
+    opacity: 0;
+    width: 100%;
+    height: 90%;
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+  }
+  .el-color-picker__trigger {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}
+.chooseColor {
+  width: 98%;
+  margin: auto 10px;
+  padding-top: 20px;
+  // min-width: 260px;
+}
 .colorbox {
-  width: 40px;
-  height: 40px;
+  width: 13% !important;
+  min-width: 35px;
+  min-height: 35px;
   float: left;
-  margin-left: 4%;
+  margin-left: 2%;
   margin-right: 1%;
   margin-bottom: 4%;
   border-radius: 6px;
   border: 1px solid #d6d6d6;
+  img {
+    width: 100%;
+    display: block;
+    opacity: 0;
+  }
 }
-.el-color-picker {
-  text-align: center;
-  font-size: 36px;
-}
-.el-color-picker__color {
-  display: none !important;
-}
-.el-color-picker__icon {
-  display: none;
-}
-.el-color-picker__trigger {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
+// .colorbox {
+//   width: 40px;
+//   height: 40px;
+//   float: left;
+//   margin-left: 4%;
+//   margin-right: 1%;
+//   margin-bottom: 4%;
+//   border-radius: 6px;
+//   border: 1px solid #d6d6d6;
+// }
+// .el-color-picker {
+//   text-align: center;
+//   font-size: 36px;
+// }
+// .el-color-picker__color {
+//   display: none !important;
+// }
+// .el-color-picker__icon {
+//   display: none;
+// }
+// .el-color-picker__trigger {
+//   position: absolute;
+//   top: 0px;
+//   left: 0px;
+// }
 .block-bar {
   margin-top: 2%;
 }

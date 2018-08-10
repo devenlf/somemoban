@@ -100,7 +100,7 @@ body {
   transform: translate(-50%, -50%);
   top: 56%;
   left: 50%;
-  width: 54%;
+  width: 60%;
   height: 50%;
 }
 .banner {

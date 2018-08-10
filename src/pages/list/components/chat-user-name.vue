@@ -14,10 +14,16 @@
       </el-switch>
       </div>
        <div class="chooseColor">
-          <template v-for="(color,index) in colorList">
-            <div class="colorbox" :key="index" :style="{background:color.color}" @click="getColor(color)"></div>
+         <template v-for="(color,index) in colorList">
+            <div class="colorbox" :key="index" :style="{background:color.color}" @click="getColor(color)">
+              <img src="../../../../static/image/user0.jpg" alt="">
+            </div>
           </template>
-          <el-color-picker  @change="setColor()" class="colorbox el-icon-plus" v-model="colorInit"></el-color-picker>
+          <div class="colorbox  addColor">
+            <img src="../../../../static/image/user0.jpg" alt="">
+               <span class="el-icon-plus"></span>
+               <el-color-picker  @change="setColor()"  v-model="colorInit"></el-color-picker>
+          </div>
           <div style="clear:both"></div>
       </div>
         <div class="block-bar">

@@ -94,7 +94,7 @@ export default {
 .bgset {
   width: 100%;
   height: 100%;
-  min-width: 318px;
+  // min-width: 318px;
   background: #fafafa;
   box-shadow: -5px 0 9px 0 rgba(4, 0, 0, 0.17);
   overflow: hidden;

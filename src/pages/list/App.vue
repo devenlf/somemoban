@@ -63,7 +63,7 @@ export default {
         titletxt: '1',
         carbon: '2'
       },
-      type: 2,
+      type: 3,
       chatData: [
         {
           userimg: '../../../static/image/user0.jpg',
@@ -134,6 +134,76 @@ body {
   margin: 0 auto;
 }
 
+.chat-bg-0 {
+  .chat-bg {
+    border-radius: 5vw;
+    background: rgba($color: white, $alpha: 0.2);
+  }
+  .user-img {
+    border-radius: 50%;
+  }
+  .chat-date {
+    color: #ccc;
+  }
+  color: #ffffff;
+}
+
+.chat-bg-1 {
+  .chat-bg {
+    background: rgba($color: white, $alpha: 0.2);
+  }
+  .chat-date {
+    color: #ccc;
+  }
+  color: #ffffff;
+}
+
+.chat-bg-2 {
+  .chat-bg {
+    border-radius: 5vw;
+    background: rgba($color: #efefef, $alpha: 0.9);
+  }
+  .user-img {
+    border-radius: 50%;
+  }
+  color: #768ca5;
+}
+
+.chat-bg-3 {
+  .chat-bg {
+    background: rgba($color: #efefef, $alpha: 0.9);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 60%;
+    width: 78%;
+    height: 80%;
+  }
+  .chat-bg:before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    right: 99.9%;
+    top: 38px;
+    border-top: 13px solid transparent;
+    border-right: 26px solid rgba($color: #efefef, $alpha:1);
+    z-index: 100;
+    border-bottom: 13px solid transparent;
+  }
+
+  .user-name{
+      left: 23%;
+  }
+
+  .chat-content{
+     left: 23%;
+  }
+  .user-img {
+    border-radius: 50%;
+  }
+  color: #768ca5;
+}
+
 .chat-box {
   height: 30%;
   width: 90%;
@@ -143,7 +213,6 @@ body {
   position: relative;
 }
 
-
 .chat-bg {
   position: absolute;
   height: 100%;
@@ -152,14 +221,14 @@ body {
 
 .user-img {
   position: absolute;
-  width: 14%;
-  height: 74%;
+  width: 11%;
   transform: translate(-50%, -50%);
   top: 50%;
-  left: 12%;
+  left: 8%;
   overflow: hidden;
   img {
     width: 100%;
+    display: block;
   }
 }
 
@@ -167,8 +236,8 @@ body {
   position: absolute;
   width: 20%;
   height: 24%;
-  top: 15%;
-  left: 21%;
+  top: 22%;
+  left: 16%;
   span {
     font-size: 15px;
     height: 100%;
@@ -176,21 +245,19 @@ body {
     line-height: 100%;
     margin-top: 2%;
     font-family: "MicrosoftYaHei";
-    color: #ffffff;
   }
 }
 
 .chat-content {
   position: absolute;
   width: 62%;
-  height: 36%;
-  top: 47%;
-  left: 21%;
-  vertical-align:middle;
+  height: 28%;
+  top: 50%;
+  left: 16%;
+  vertical-align: middle;
   p {
     font-size: 24px;
     margin-top: 0px;
-    color: #ffffff
   }
 }
 
@@ -199,15 +266,14 @@ body {
   width: 30%;
   height: 20%;
   top: 15%;
-  left: 52%;
-   span {
+  left: 62%;
+  span {
     font-size: 15px;
     height: 100%;
     display: block;
     line-height: 100%;
-    margin-top: 2%;
+    margin-top: 4%;
     font-family: "MicrosoftYaHei";
-    color: #cccccc;
     text-align: right;
   }
 }
@@ -236,7 +302,7 @@ body {
   transform: translate(-50%, -50%);
   top: 45%;
   left: 50%;
-  width: 50%;
+  width: 60%;
   height: 40%;
 }
 
@@ -245,7 +311,7 @@ body {
   transform: translate(-50%, -50%);
   top: 45%;
   left: 50%;
-  width: 50%;
+  width: 60%;
   height: 40%;
 }
 

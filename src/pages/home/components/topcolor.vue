@@ -15,9 +15,16 @@
       </div>
       <div class="chooseColor">
           <template v-for="(color,index) in colorList">
-            <div class="colorbox" :key="index" :style="{background:color.color}" @click="getColor(color)"></div>
+            <div class="colorbox" :key="index" :style="{background:color.color}" @click="getColor(color)">
+              <img src="../../../../static/image/user0.jpg" alt="">
+            </div>
           </template>
-          <el-color-picker  @change="setColor()" class="colorbox el-icon-plus" v-model="colorInit"></el-color-picker>
+          <div class="colorbox  addColor">
+            <img src="../../../../static/image/user0.jpg" alt="">
+               <span class="el-icon-plus"></span>
+               <el-color-picker  @change="setColor()"  v-model="colorInit"></el-color-picker>
+          </div>
+       
           <div style="clear:both"></div>
       </div>
         <div class="block-bar">
@@ -95,10 +102,10 @@ export default {
   float: left;
   margin-left: 8%;
 }
-.opcityValue{
+.opcityValue {
   float: left;
   margin-top: 2%;
-  margin-left: 7%
+  margin-left: 7%;
 }
 .choseBg {
   min-width: 255px;
@@ -125,36 +132,56 @@ export default {
   margin-top: 10px;
   float: left;
 }
-.el-color-picker {
-  text-align: center;
-  font-size: 36px;
+
+.addColor {
+  position: relative;
+
+  span {
+    position: absolute;
+    z-index: 90;
+    top: 0px;
+    left: 0px;
+    font-size: 200%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
+  .el-color-picker {
+    opacity: 0;
+    width: 100%;
+    height: 90%;
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+  }
+  .el-color-picker__trigger {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
 }
-.el-color-picker__color {
-  display: none !important;
-}
-.el-color-picker__icon {
-  display: none;
-}
-.el-color-picker__trigger {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-}
+
 .chooseColor {
-  width: 94%;
+  width: 98%;
   margin: auto 10px;
   padding-top: 20px;
-  min-width: 360px;
+  // min-width: 260px;
 }
 .colorbox {
-  width: 40px;
-  height: 40px;
+  width: 13% !important;
+  min-width: 35px;
+  min-height: 35px;
   float: left;
-  margin-left: 4%;
+  margin-left: 2%;
   margin-right: 1%;
   margin-bottom: 4%;
   border-radius: 6px;
   border: 1px solid #d6d6d6;
+  img {
+    width: 100%;
+    display: block;
+    opacity: 0;
+  }
 }
 </style>
 
