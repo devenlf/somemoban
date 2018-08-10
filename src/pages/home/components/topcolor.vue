@@ -128,7 +128,6 @@ export default {
   margin: 1px;
 }
 .el-switch {
-  margin-left: 30%;
   margin-top: 10px;
   float: left;
 }

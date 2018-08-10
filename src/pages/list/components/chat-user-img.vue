@@ -14,11 +14,13 @@
       </el-switch>
       </div>
        <p class="chooseStyle">形状</p>
-        <div class="round img-user">
+       <div class="choose-style-box">
+      <div class="round img-user">
         <img src="../../../../static/image/user1.jpg" alt="">
       </div>
       <div class="square img-user">
         <img src="../../../../static/image/user1.jpg" alt="">
+      </div>
       </div>
   </div>
 </template>
@@ -40,7 +42,11 @@ export default {
 }
 </script>
 <style lang="scss">
-.chooseStyle{
+.choose-style-box {
+  width: 100%;
+  padding-left: 8%;
+}
+.chooseStyle {
   font-size: 12px;
   margin-left: 8%;
 }
@@ -73,24 +79,22 @@ export default {
     float: left;
   }
 }
-.img-user{
+.img-user {
   width: 76px;
   height: 76px;
   overflow: hidden;
   float: left;
   margin-top: 20px;
-  margin-left: 8%;
-  img{
+  margin-right: 8%;
+  img {
     height: 100%;
     width: 100%;
   }
 }
-.round{
+.round {
   border-radius: 38px;
 }
-.square{
-  margin-left: 40px;
-}
+
 .bgset {
   width: 100%;
   height: 100%;
@@ -125,7 +129,6 @@ export default {
   float: right !important;
 }
 .el-switch {
-  margin-left: 38%;
   margin-top: 10px;
   float: right;
 }

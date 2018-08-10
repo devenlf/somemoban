@@ -20,7 +20,7 @@
     <div class="chat-conenet-all">
       <template v-for="(data,index) in chatData">
         <div class="chat-box" :class="setStyleType" :key="index">
-        <div class="chat-bg" :class="{'styleborder':isShow(0)}"  @click="addClass(0)"></div>
+        <div class="chat-bg" :class="{'styleborder':isShow(0),'square':isShow(0)}"  @click="addClass(0)"></div>
         <div class="user-img" :class="{'styleborder':isShow(1)}"  @click="addClass(1)">
           <img :src="data.userimg" alt="">
         </div>
@@ -186,17 +186,17 @@ body {
     right: 99.9%;
     top: 38px;
     border-top: 13px solid transparent;
-    border-right: 26px solid rgba($color: #efefef, $alpha:1);
+    border-right: 26px solid rgba($color: #efefef, $alpha: 1);
     z-index: 100;
     border-bottom: 13px solid transparent;
   }
 
-  .user-name{
-      left: 23%;
+  .user-name {
+    left: 23%;
   }
 
-  .chat-content{
-     left: 23%;
+  .chat-content {
+    left: 23%;
   }
   .user-img {
     border-radius: 50%;
@@ -280,6 +280,9 @@ body {
 
 .styleborder {
   border: 2px solid rgba($color: yellow, $alpha: 1) !important;
+}
+.square:before {
+    border-right: 26px solid rgba($color: yellow, $alpha: 1) !important;
 }
 .el-row {
   height: 100%;

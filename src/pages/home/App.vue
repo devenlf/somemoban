@@ -42,8 +42,8 @@ export default {
     return {
       current: 0,
       bannerText: {
-        titletxt: '1',
-        carbon: '2'
+        titletxt: '2015法拉利环球国际展-上海站',
+        carbon: '热烈欢迎来自五湖四海的广大车友'
       }
     }
   },
@@ -98,6 +98,8 @@ body {
 .foreground {
   position: absolute;
   transform: translate(-50%, -50%);
+  background: #000;
+  opacity: 0.3;
   top: 56%;
   left: 50%;
   width: 60%;
@@ -109,7 +111,7 @@ body {
   transform: translate(-50%, -50%);
   width: 56%;
   height: 8%;
-  top: 12%;
+  top: 13%;
   left: 50%;
   text-align: center;
   h2 {
@@ -121,6 +123,7 @@ body {
     margin-top: 10px;
     color: white;
     font-size: 18px;
+    opacity: 0.7;
   }
 }
 .bgimgby {

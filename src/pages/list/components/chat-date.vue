@@ -83,13 +83,9 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 
-.data-bg{
-  .el-switch{
-    margin-left: 0px
-  }
-}
 hr{
   margin-top: 5%;
 }

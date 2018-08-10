@@ -3,7 +3,7 @@
 <template>
   <div class="bgset">
     <div class="head"><span>用户名 设置</span></div>
-    <div class="choseBg">
+    <div class="choseBg user-name-bg">
       <span class="title">显示用户名</span>
       <span class="cueColor" v-if="isShowUsername">显示</span>
       <span class="cueColor" v-else>隐藏</span>
