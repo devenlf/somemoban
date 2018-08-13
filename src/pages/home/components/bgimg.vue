@@ -5,8 +5,13 @@
     <div class="choseBg"><span>选择背景</span></div>
     <div class="block">
     <el-carousel  trigger="click" :autoplay="false">
-    <el-carousel-item v-for="item in 4" :key="item">
-      <h3>{{ item }}</h3>
+    <el-carousel-item v-for="item in showAllTitleImg" :key="item.id">
+      <template v-for="(data,index) in item">
+        <div :key="index" class="dataBack">
+          <img class="contentImg" src="../../../../static/image/code.png" alt="">
+          <img class="contentDataImg" :src="data.img"  alt="">
+        </div>
+      </template>
     </el-carousel-item>
   </el-carousel>
   </div>
@@ -23,6 +28,24 @@
   </div>
 </template>
 <style lang="scss">
+.el-carousel__item {
+  width: 100%;
+}
+.dataBack {
+  float: left;
+  width: 20%;
+  margin:0 2.5%;
+  margin-top: 5%;
+  position: relative;
+  .contentImg {
+    width: 100%;
+  }
+  .contentDataImg{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+  }
+}
 .upload-demo-bg {
   width: 100%;
   button {
@@ -81,16 +104,10 @@
     text-indent: 10%;
   }
 }
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 14px;
-  opacity: 0.75;
-  line-height: 150px;
-  margin: 0;
-}
 .block {
   width: 92%;
-  height: 28%;
+  min-width: 255px;
+  height: 25%;
   margin-left: 4%;
 }
 .el-carousel {
@@ -101,9 +118,6 @@
   height: 100%;
   width: 100%;
 }
-.el-carousel__item {
-  // height: 150px
-}
 </style>
 
 <script>
@@ -111,18 +125,49 @@ export default {
   data() {
     return {
       index: 0,
-      fileList2: [
-        {
-          name: 'food.jpeg',
-          url:
-            'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-        },
-        {
-          name: 'food2.jpeg',
-          url:
-            'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-        }
-      ]
+      showAllTitleImg: [
+        [
+          {
+            img:
+              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+          },
+          {
+            img:
+              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+          },
+          {
+            img:
+              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+          },
+          {
+            img:
+              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+          },
+          {
+            img:
+              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+          },
+          {
+            img:
+              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+          }
+        ],
+        [
+          {
+            img:
+              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+          },
+          {
+            img:
+              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+          },
+          {
+            img:
+              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
+          }
+        ]
+      ],
+      fileList2: []
     }
   },
   created: function() {},

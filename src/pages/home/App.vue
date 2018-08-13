@@ -14,7 +14,7 @@
       <h2>{{bannerText.titletxt}}</h2>
       <span>{{bannerText.carbon}}</span>
     </div>
-    <div class="foreground" :class="{'styleborder':isShow(4)}"  @click="addClass(4)">
+    <div class="foreground" v-if="topIsShowBg" :class="{'styleborder':isShow(4)}" :style="{background:topColorValue,opacity:topOpacityValue}" @click="addClass(4)">
 
     </div>
  
@@ -36,7 +36,8 @@ import code from './components/code'
 import logo from './components/logo'
 import titleBanner from './components/titleBanner'
 import topcolor from './components/topcolor'
-
+import { mapGetters } from 'vuex'
+// background:topColorValue,opacity:topOpacityValue
 export default {
   data() {
     return {
@@ -47,7 +48,9 @@ export default {
       }
     }
   },
-  created: function() {},
+  computed: {
+    ...mapGetters(['topColorValue', 'topOpacityValue', 'topIsShowBg'])
+  },
   methods: {
     addClass(index) {
       this.current = index
@@ -98,8 +101,7 @@ body {
 .foreground {
   position: absolute;
   transform: translate(-50%, -50%);
-  background: #000;
-  opacity: 0.3;
+  background: rgba(black, 0.3);
   top: 56%;
   left: 50%;
   width: 60%;
@@ -110,7 +112,7 @@ body {
   z-index: 99;
   transform: translate(-50%, -50%);
   width: 56%;
-  height: 8%;
+  min-height: 25px;
   top: 13%;
   left: 50%;
   text-align: center;

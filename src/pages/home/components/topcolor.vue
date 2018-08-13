@@ -5,24 +5,25 @@
     <div class="head"><span>前景色 设置</span></div>
     <div class="choseBg">
       <span class="title">显示前景色</span>
+      <span class="cueColor" v-if="isShowTopColor">显示</span>
+      <span class="cueColor" v-else>隐藏</span>
       <el-switch
+        @change="changeIsShow"
         v-model="isShowTopColor"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
-      <span class="cueColor" v-if="isShowTopColor">显示</span>
-      <span class="cueColor" v-else>隐藏</span>
       </div>
       <div class="chooseColor">
           <template v-for="(color,index) in colorList">
-            <div class="colorbox" :key="index" :style="{background:color.color}" @click="getColor(color)">
+            <div class="colorbox" :key="index" :style="{background:color.color}" @click="changeColor(color)">
               <img src="../../../../static/image/user0.jpg" alt="">
             </div>
           </template>
           <div class="colorbox  addColor">
             <img src="../../../../static/image/user0.jpg" alt="">
                <span class="el-icon-plus"></span>
-               <el-color-picker  @change="setColor()"  v-model="colorInit"></el-color-picker>
+               <el-color-picker  @change="addColor()"  v-model="colorInit"></el-color-picker>
           </div>
        
           <div style="clear:both"></div>
@@ -36,6 +37,7 @@
   </div>
 </template>
 <script>
+import store from '../store'
 export default {
   data() {
     return {
@@ -53,15 +55,23 @@ export default {
       colorOpcity: 50
     }
   },
-  created: function() {},
   methods: {
-    getColor(data) {
-      console.log(data)
+    changeColor(color) {
+      store.commit('setColorTop', color.color)
     },
-    setColor() {
-      console.log(12313)
+    changeOpacity(value) {
+      store.commit('setOpacityTop', value)
+    },
+    changeIsShow() {
+      store.commit('setIsShowTop', this.isShowTopColor)
+    },
+    addColor() {
+      const newColor = {}
+      newColor.color = this.colorInit
+      this.colorList.push(newColor)
     },
     formatTooltip(val) {
+      this.changeOpacity(val / 100)
       return val / 100
     }
   }
@@ -98,7 +108,7 @@ export default {
   margin-left: 8%;
 }
 .el-slider {
-  width: 50%;
+  width: 40%;
   float: left;
   margin-left: 8%;
 }
@@ -129,7 +139,7 @@ export default {
 }
 .el-switch {
   margin-top: 10px;
-  float: left;
+  float: right;
 }
 
 .addColor {

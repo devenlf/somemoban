@@ -5,13 +5,13 @@
     <div class="head"><span>二维码 设置</span></div>
     <div class="choseBg">
       <span class="title">显示二维码</span>
+      <span class="cueColor" v-if="isShowTopColor">显示</span>
+      <span class="cueColor" v-else>隐藏</span>
       <el-switch
         v-model="isShowTopColor"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
-      <span class="cueColor" v-if="isShowTopColor">显示</span>
-      <span class="cueColor" v-else>隐藏</span>
       </div>
        <div class="up-banner-bg">
         <el-upload
@@ -90,37 +90,6 @@ export default {
     color: #028fee;
   }
 }
-.el-input {
-  width: 80%;
-  margin-left: 8%;
-  margin-top: 3%;
-}
-.el-radio {
-  margin-bottom: 8%;
-  margin-top: 3%;
-}
-.cueColor {
-  text-indent: 5% !important;
-  font-size: 13px;
-  color: #999;
-  letter-spacing: 1px;
-  margin: 1px;
-}
-.el-switch {
-  margin-left: 30%;
-  margin-top: 10px;
-  float: left;
-}
-.el-radio-group {
-  padding-left: 8%;
-}
-.banner-type {
-  width: 100%;
-  p {
-    font-size: 14px;
-    color: #333333;
-    text-indent: 8%;
-  }
-}
+
 </style>
 

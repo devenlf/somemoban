@@ -5,13 +5,13 @@
     <div class="head"><span>banner、标题 设置</span></div>
     <div class="choseBg">
       <span class="title">显示banner</span>
+      <span class="cueColor" v-if="isShowTopColor">显示</span>
+      <span class="cueColor" v-else>隐藏</span>
       <el-switch
         v-model="isShowTopColor"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
-      <span class="cueColor" v-if="isShowTopColor">显示</span>
-      <span class="cueColor" v-else>隐藏</span>
       </div>
       <div class="banner-type">
         <p>banner种类</p>
@@ -121,11 +121,12 @@ export default {
   color: #999;
   letter-spacing: 1px;
   margin: 1px;
+  float: right !important;
 }
 .el-switch {
-  margin-left: 30%;
   margin-top: 10px;
-  float: left;
+  right: 0px;
+  float: right;
 }
 .el-radio-group {
   padding-left: 8%;
@@ -138,5 +139,6 @@ export default {
     text-indent: 8%;
   }
 }
+
 </style>
 
