@@ -81,7 +81,7 @@ export default {
   height: 100%;
   background: #fafafa;
   box-shadow: -5px 0 9px 0 rgba(4, 0, 0, 0.17);
-  overflow: hidden;
+  // overflow: hidden;
   .head {
     width: 100%;
     height: 4%;

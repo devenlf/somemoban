@@ -14,7 +14,7 @@
       <h2>{{bannerText.titletxt}}</h2>
       <span>{{bannerText.carbon}}</span>
     </div>
-    <div class="foreground" v-if="topIsShowBg" :class="{'styleborder':isShow(4)}" :style="{background:topColorValue,opacity:topOpacityValue}" @click="addClass(4)">
+    <div class="foreground" v-if="topIsShowBg" :class="{'styleborder':isShow(4)}" :style="{background:topColorRGBAValue}" @click="addClass(4)">
 
     </div>
  
@@ -37,7 +37,6 @@ import logo from './components/logo'
 import titleBanner from './components/titleBanner'
 import topcolor from './components/topcolor'
 import { mapGetters } from 'vuex'
-// background:topColorValue,opacity:topOpacityValue
 export default {
   data() {
     return {
@@ -49,7 +48,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['topColorValue', 'topOpacityValue', 'topIsShowBg'])
+    ...mapGetters(['topColorRGBAValue', 'topIsShowBg'])
   },
   methods: {
     addClass(index) {
@@ -75,17 +74,17 @@ export default {
 <style lang="scss">
 html,
 body {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   margin: 0 auto;
 }
 .styleborder {
   border: 2px solid yellow !important;
 }
 .el-row {
-  height: 100%;
+  height: 100vh;
   .el-col {
-    height: 100%;
+    height: 100vh;
   }
 }
 .logo {
@@ -112,19 +111,19 @@ body {
   z-index: 99;
   transform: translate(-50%, -50%);
   width: 56%;
-  min-height: 25px;
-  top: 13%;
+  top: 13vh;
   left: 50%;
   text-align: center;
   h2 {
     margin: 0px;
     color: white;
+    font-size: 1.5vmax;
   }
   span {
     display: block;
-    margin-top: 10px;
+    margin-top: 0.2vmin;
     color: white;
-    font-size: 18px;
+    font-size: 1vmax;
     opacity: 0.7;
   }
 }
@@ -136,7 +135,6 @@ body {
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
-  z-index: 1px;
   img {
     width: 100%;
     height: 100%;
@@ -147,7 +145,7 @@ body {
   position: absolute;
   width: 5%;
   left: 90%;
-  top: 14%;
+  top: 10%;
   border: 1px dashed white;
   img {
     display: block;
@@ -157,7 +155,7 @@ body {
 }
 .bg-left {
   display: block;
-  height: 100%;
+  height: 100vh;
   position: relative;
 }
 .bg-right {

@@ -122,15 +122,15 @@ hr{
   }
 }
 .chooseColor {
-  width: 98%;
-  margin: auto 10px;
-  padding-top: 20px;
-  // min-width: 260px;
+  width: 94%;
+  padding-top: 3vmin;
+  margin-left: 4%;
 }
 .colorbox {
-  width: 13% !important;
-  min-width: 35px;
-  min-height: 35px;
+  width: 12% !important;
+  font-size: 2vmin;
+  font-weight: bold;
+  color: #ccc;
   float: left;
   margin-left: 2%;
   margin-right: 1%;
@@ -143,49 +143,26 @@ hr{
     opacity: 0;
   }
 }
-// .colorbox {
-//   width: 40px;
-//   height: 40px;
-//   float: left;
-//   margin-left: 4%;
-//   margin-right: 1%;
-//   margin-bottom: 4%;
-//   border-radius: 6px;
-//   border: 1px solid #d6d6d6;
-// }
-// .el-color-picker {
-//   text-align: center;
-//   font-size: 36px;
-// }
-// .el-color-picker__color {
-//   display: none !important;
-// }
-// .el-color-picker__icon {
-//   display: none;
-// }
-// .el-color-picker__trigger {
-//   position: absolute;
-//   top: 0px;
-//   left: 0px;
-// }
 .block-bar {
   margin-top: 2%;
 }
 .demonstration {
   float: left;
-  height: 35px;
-  line-height: 35px;
+  font-size: 1.2vmin;
+  height: 1vmin;
+  margin-top: 4%;
   margin-left: 8%;
 }
 .el-slider {
-  width: 50%;
+  width: 45%;
   float: left;
   margin-left: 8%;
 }
 .opcityValue{
   float: left;
-  margin-top: 2%;
-  margin-left: 7%
+  margin-top: 4%;
+  margin-left: 6%;
+  font-size: 1.2vmin;
 }
 </style>
 

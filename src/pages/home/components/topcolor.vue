@@ -71,7 +71,7 @@ export default {
       this.colorList.push(newColor)
     },
     formatTooltip(val) {
-      this.changeOpacity(val / 100)
+      this.changeOpacity(val)
       return val / 100
     }
   }
@@ -86,10 +86,11 @@ export default {
 }
 .bgset {
   width: 100%;
+  min-width: 255px;
   height: 100%;
   background: #fafafa;
   box-shadow: -5px 0 9px 0 rgba(4, 0, 0, 0.17);
-  overflow: hidden;
+  // overflow: auto;
   .head {
     width: 100%;
     height: 4%;
@@ -99,7 +100,7 @@ export default {
   }
 }
 .block-bar {
-  margin-top: 200px;
+  margin-top: 8vmin;
 }
 .demonstration {
   float: left;
@@ -125,21 +126,24 @@ export default {
   background: #ededed;
   color: #2e323e;
   font-size: 14px;
+  padding-top: 1.2%;
   span {
-    padding-top: 1.2%;
+    padding-top: 3%;
     float: left;
   }
 }
 .cueColor {
   text-indent: 5% !important;
   font-size: 13px;
-  color: #999;
+  margin-top: -.2%;
+  color: #999 !important;
   letter-spacing: 1px;
-  margin: 1px;
+  float: right !important;
+  margin-right: 3vmin;
 }
 .el-switch {
-  margin-top: 10px;
   float: right;
+  padding-top:3%;
 }
 
 .addColor {
@@ -172,15 +176,15 @@ export default {
 }
 
 .chooseColor {
-  width: 98%;
-  margin: auto 10px;
-  padding-top: 20px;
-  // min-width: 260px;
+  width: 94%;
+  padding-top: 3vmin;
+  margin-left: 4%;
 }
 .colorbox {
-  width: 13% !important;
-  min-width: 35px;
-  min-height: 35px;
+  width: 12% !important;
+  font-size: 2vmin;
+  font-weight: bold;
+  color: #ccc;
   float: left;
   margin-left: 2%;
   margin-right: 1%;

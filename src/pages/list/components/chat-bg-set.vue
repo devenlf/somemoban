@@ -6,7 +6,7 @@
     <div class="block">
       <template v-for="(data,index) in imgInfo">
         <div :key="index">
-          <p>{{data.type}}</p>
+          <p class="style-title">{{data.type}}</p>
           <img :src="data.imgSrc" alt="">
         </div>
       </template>
@@ -17,13 +17,14 @@
 .bgset {
   width: 100%;
   height: 100%;
+  min-width: 255px;
   background: #fafafa;
   box-shadow: -5px 0 9px 0 rgba(4, 0, 0, 0.17);
-  overflow: hidden;
+  // overflow: auto;
   .head {
     width: 100%;
     height: 6%;
-    padding: 8% 0 0 8%;
+    padding-top: 8%;
     font-size: 15px;
     color: #028fee;
   }
@@ -50,6 +51,9 @@
   margin-left: 4%;
 }
 
+.style-title{
+  font-size: 1.2vmin
+}
 </style>
 
 <script>

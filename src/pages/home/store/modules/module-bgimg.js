@@ -1,14 +1,17 @@
 const module = {
   state: {
-    color: '#ffffff',
-    opcity: '0.3'
+    backgroundImg: ''
   },
   mutations: {
-    setColor(state, newColor) {
-      state.color = newColor
+    setIsShowTop(state, url) {
+      state.backgroundImg = url
     }
   },
-  actions: {},
-  getters: {}
+  actions: { },
+  getters: {
+    topColorBackgroundValue: state => {
+      return state.backgroundImg
+    }
+  }
 }
 export default module

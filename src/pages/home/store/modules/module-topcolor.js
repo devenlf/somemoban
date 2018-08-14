@@ -1,15 +1,18 @@
+import hexToRgba from '@/utils/hexToRgba.js'
 const module = {
   state: {
-    color: '#ffffff',
-    opacity: '0.3',
-    isShow: true
+    color: '#000000',
+    opacity: '30',
+    isShow: true,
+    colorRGBA: ''
   },
   mutations: {
     setColorTop(state, newColor) {
       state.color = newColor
+      state.colorRGBA = hexToRgba(newColor, state.opacity)
     },
     setOpacityTop(state, newOpacity) {
-      state.opacity = newOpacity
+      state.colorRGBA = hexToRgba(state.color, newOpacity)
     },
     setIsShowTop(state, bool) {
       state.isShow = bool
@@ -17,11 +20,9 @@ const module = {
   },
   actions: { },
   getters: {
-    topColorValue: state => {
-      return state.color
-    },
-    topOpacityValue: state => {
-      return state.opacity
+    topColorRGBAValue: state => {
+      console.log(state.colorRGBA)
+      return state.colorRGBA
     },
     topIsShowBg: state => {
       return state.isShow

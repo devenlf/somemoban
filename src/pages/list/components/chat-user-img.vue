@@ -47,8 +47,10 @@ export default {
   padding-left: 8%;
 }
 .chooseStyle {
-  font-size: 12px;
+  font-size: 1.2vmin;
+  font-family: 'MicrosoftYaHei';
   margin-left: 8%;
+  font-weight: bold;
 }
 .upload-demo-code {
   margin-top: 10px;
@@ -96,12 +98,6 @@ export default {
 }
 
 .bgset {
-  width: 100%;
-  height: 100%;
-  // min-width: 318px;
-  background: #fafafa;
-  box-shadow: -5px 0 9px 0 rgba(4, 0, 0, 0.17);
-  overflow: hidden;
   .head {
     width: 100%;
     height: 4%;
@@ -109,6 +105,9 @@ export default {
     font-size: 15px;
     color: #028fee;
     font-weight: bold;
+    span{
+      margin-left: 8%
+    }
   }
 }
 .el-input {

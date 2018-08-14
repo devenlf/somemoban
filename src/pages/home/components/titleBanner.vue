@@ -97,7 +97,7 @@ export default {
   height: 100%;
   background: #fafafa;
   box-shadow: -5px 0 9px 0 rgba(4, 0, 0, 0.17);
-  overflow: hidden;
+  // overflow: hidden;
   .head {
     width: 100%;
     height: 4%;
@@ -121,13 +121,8 @@ export default {
   color: #999;
   letter-spacing: 1px;
   margin: 1px;
-  float: right !important;
 }
-.el-switch {
-  margin-top: 10px;
-  right: 0px;
-  float: right;
-}
+
 .el-radio-group {
   padding-left: 8%;
 }

@@ -9,7 +9,7 @@
       <template v-for="(data,index) in item">
         <div :key="index" class="dataBack">
           <img class="contentImg" src="../../../../static/image/code.png" alt="">
-          <img class="contentDataImg" :src="data.img"  alt="">
+          <img class="contentDataImg" :src="data.img"  alt="" @click="changeBackImg(data.img)">
         </div>
       </template>
     </el-carousel-item>
@@ -21,26 +21,29 @@
         action="https://jsonplaceholder.typicode.com/posts/"
         :file-list="fileList2"
         list-type="picture">
-        <el-button size="small" type="primary">点击上传</el-button>
-        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+        <el-button size="small" type="primary">上传自定义图片</el-button>
+        <div slot="tip" class="el-upload__tip">支持格式：png，jpg，jpeg，gif</div>
+        <div slot="tip" class="el-upload__tip">背景尺寸：1920px*1080px</div>
+        <div slot="tip" class="el-upload__tip">背景大小：1MB以内</div>
 </el-upload>
   </div>
   </div>
 </template>
 <style lang="scss">
 .el-carousel__item {
+  background: white;
   width: 100%;
 }
 .dataBack {
   float: left;
   width: 20%;
-  margin:0 2.5%;
+  margin: 0 2.5%;
   margin-top: 5%;
   position: relative;
   .contentImg {
     width: 100%;
   }
-  .contentDataImg{
+  .contentDataImg {
     position: absolute;
     top: 0px;
     width: 100%;
@@ -57,13 +60,16 @@
   height: 100%;
   background: #fafafa;
   box-shadow: -5px 0 9px 0 rgba(4, 0, 0, 0.17);
-  overflow: hidden;
+  // overflow: hidden;
   .head {
     width: 100%;
     height: 6%;
-    padding: 8% 0 0 8%;
-    font-size: 15px;
+    padding-top: 8%;
     color: #028fee;
+    span {
+      margin-left: 8%;
+      font-size: 1.6vmin;
+    }
   }
 }
 .el-carousel__arrow {
@@ -77,9 +83,13 @@
   }
 }
 .el-upload__tip {
-  width: 92%;
-  margin: 4% auto;
-  text-align: center;
+  width: 90%;
+  margin: 2% 10%;
+  text-align: left;
+}
+.el-upload {
+  margin-bottom: 1vmin;
+  margin-top: 1vmin
 }
 .el-carousel__button {
   width: 14px;
@@ -95,18 +105,18 @@
   width: 100%;
   height: 5%;
   background: #ededed;
-  color: #2e323e;
-  font-size: 14px;
   span {
     display: block;
     height: 100%;
-    line-height: 230%;
-    text-indent: 10%;
+    text-indent: 8%;
+    color: #2E323E;
+    font-size: 1.4vmin
   }
 }
 .block {
   width: 92%;
   min-width: 255px;
+  min-height: 180px;
   height: 25%;
   margin-left: 4%;
 }
@@ -121,6 +131,7 @@
 </style>
 
 <script>
+// import store from '../store'
 export default {
   data() {
     return {
@@ -171,6 +182,10 @@ export default {
     }
   },
   created: function() {},
-  methods: {}
+  methods: {
+    changeBackImg(value) {
+      // store.commit('setIsShowTop',va)
+    }
+  }
 }
 </script>
