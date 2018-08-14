@@ -78,22 +78,17 @@ export default {
 }
 </script>
 <style lang="scss">
-.el-upload {
-  width: 100%;
-  button {
-    width: 80%;
-  }
-}
+
 .bgset {
   width: 100%;
   min-width: 255px;
   height: 100%;
   background: #fafafa;
   box-shadow: -5px 0 9px 0 rgba(4, 0, 0, 0.17);
-  // overflow: auto;
   .head {
     width: 100%;
     height: 4%;
+    font-weight: bold;
     min-height: 40px;
     font-size: 15px;
     color: #028fee;
@@ -120,15 +115,14 @@ export default {
 }
 .choseBg {
   min-width: 255px;
+  font-weight: bold;
   width: 100%;
-  height: 40px;
-  min-height: 40px;
+  height: 20px;;
+  min-height: 2vmin;
   background: #ededed;
   color: #2e323e;
-  font-size: 14px;
-  padding-top: 1.2%;
+  padding: .8vmin 0;
   span {
-    padding-top: 3%;
     float: left;
   }
 }
@@ -143,7 +137,6 @@ export default {
 }
 .el-switch {
   float: right;
-  padding-top:3%;
 }
 
 .addColor {

@@ -13,13 +13,14 @@
         inactive-color="#dcdfe6">
       </el-switch>
       </div>
-       <div class="up-banner-bg">
+       <div class="up-style-code">
+         <img class="current-show-code" src="../../../../static/image/636402237338100756.png" alt="">
         <el-upload
             class="upload-demo-code"
             action="https://jsonplaceholder.typicode.com/posts/"
             :file-list="fileList2"
             list-type="picture">
-        <el-button size="small" type="primary">更改</el-button>
+        <el-button size="small" type="primary">更换</el-button>
         <div slot="tip" class="el-upload__tip_code">支持格式：png，jpg，gif，logo</div>
         <div slot="tip" class="el-upload__tip_code">上传尺寸：190px*96px</div>
         <div slot="tip" class="el-upload__tip_code">图片大小：500KB以内</div>       
@@ -36,18 +37,7 @@ export default {
       radio: 1,
       titletxt: '',
       carbon: '',
-      fileList2: [
-        {
-          name: 'food.jpeg',
-          url:
-            'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-        },
-        {
-          name: 'food2.jpeg',
-          url:
-            'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-        }
-      ]
+      fileList2: []
     }
   },
   computed: {
@@ -60,15 +50,32 @@ export default {
 }
 </script>
 <style lang="scss">
+.up-style-code {
+  position: relative;
+  z-index: 99;
+}
+.current-show-code {
+  position: absolute;
+  height: 12vmin;
+  width: 12vmin;
+  min-width: 100px;
+  min-height: 100px;
+  left: 5%;
+  display: block;
+  z-index: -2;
+}
 .upload-demo-code {
   margin-top: 10px;
-  height: 120px;
-  width: 120px;
+  height: 12vmin;
+  width: 12vmin;
+  min-width: 100px;
+  min-height: 100px;
   margin-left: 4%;
   background: rgba(0, 0, 0, 0.57);
   button {
     width: 50% !important;
-    margin-top: 38px;
+    padding: 6% 10%;
+    margin-top: 30%;
     margin-bottom: 50%;
   }
   .el-upload__tip_code {
@@ -90,6 +97,5 @@ export default {
     color: #028fee;
   }
 }
-
 </style>
 

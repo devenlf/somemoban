@@ -1,4 +1,5 @@
 <template>
+<div class="content-back">
   <el-row >
   <el-col :span="19"><div class="grid-content bg-left">
     <div class="bgimgby" :class="{'styleborder':isShow(0)}"  @click="addClass(0)">
@@ -27,6 +28,8 @@
       <v-topcolor v-show="isShow(4)"></v-topcolor>
     </div></el-col>
   </el-row>
+    <!-- <V-guideLogo/> -->
+</div>
 </template>
 
 
@@ -36,6 +39,9 @@ import code from './components/code'
 import logo from './components/logo'
 import titleBanner from './components/titleBanner'
 import topcolor from './components/topcolor'
+
+import guideLogo from './guide-page/guide-page'
+
 import { mapGetters } from 'vuex'
 export default {
   data() {
@@ -66,7 +72,8 @@ export default {
     'v-code': code,
     'v-logo': logo,
     'v-titleBanner': titleBanner,
-    'v-topcolor': topcolor
+    'v-topcolor': topcolor,
+    'V-guideLogo': guideLogo
   }
 }
 </script>
@@ -78,8 +85,11 @@ body {
   height: 100vh;
   margin: 0 auto;
 }
+.content-back{
+  position: relative;
+}
 .styleborder {
-  border: 2px solid yellow !important;
+  border: 2px solid #fff600 !important;
 }
 .el-row {
   height: 100vh;
@@ -90,11 +100,13 @@ body {
 .logo {
   position: absolute;
   z-index: 99;
-  width: 12%;
+  width: 13vmin;
+  height: 7.6vmin;
   top: 10%;
   left: 6%;
   img {
     width: 100%;
+    height: 100%;
   }
 }
 .foreground {
@@ -105,6 +117,10 @@ body {
   left: 50%;
   width: 60%;
   height: 50%;
+  z-index:99;
+}
+.el-slider__button-wrapper{
+  z-index: 90 !important;
 }
 .banner {
   position: absolute;
@@ -147,6 +163,7 @@ body {
   left: 90%;
   top: 10%;
   border: 1px dashed white;
+  z-index: 99;
   img {
     display: block;
     margin: 10%;

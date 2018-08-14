@@ -23,7 +23,7 @@
   // overflow: auto;
   .head {
     width: 100%;
-    height: 6%;
+    height: 4%;
     padding-top: 8%;
     font-size: 15px;
     color: #028fee;
@@ -36,6 +36,7 @@
   background: #ededed;
   color: #2e323e;
   font-size: 14px;
+  vertical-align:middle;
   span {
     display: block;
     height: 100%;

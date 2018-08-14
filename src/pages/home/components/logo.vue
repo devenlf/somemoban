@@ -13,13 +13,14 @@
         inactive-color="#dcdfe6">
       </el-switch>
       </div>
-       <div class="up-banner-bg">
+       <div class="up-style-logo">
+        <img class="current-show-logo" src="../../../../static/image/636402237338100756.png"/>
         <el-upload
             class="upload-demo-logo"
             action="https://jsonplaceholder.typicode.com/posts/"
             :file-list="fileList2"
             list-type="picture">
-        <el-button size="small" type="primary">更改</el-button>
+        <el-button class="changelogo" size="small" type="primary">更换logo</el-button>
         <div slot="tip" class="el-upload__tip_code">支持格式：png，jpg，gif，logo</div>
         <div slot="tip" class="el-upload__tip_code">上传尺寸：190px*96px</div>
         <div slot="tip" class="el-upload__tip_code">图片大小：500KB以内</div>       
@@ -36,18 +37,7 @@ export default {
       radio: 1,
       titletxt: '',
       carbon: '',
-      fileList2: [
-        {
-          name: 'food.jpeg',
-          url:
-            'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-        },
-        {
-          name: 'food2.jpeg',
-          url:
-            'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
-        }
-      ]
+      fileList2: []
     }
   },
   computed: {
@@ -60,24 +50,40 @@ export default {
 }
 </script>
 <style lang="scss">
+.up-style-logo{
+  position: relative;
+  z-index: 99;
+}
+.current-show-logo{
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  left: 5%;
+  display: block;
+  z-index: -2;
+}
 .upload-demo-logo {
   margin-top: 10px;
-  height: 120px;
+  height: 10vmin;
+  min-height: 80px;
   width: 90%;
   margin-left: 4%;
-  background: rgba(0, 0, 0, 0.57);
-  button {
-    width: 50% !important;
-    margin-top: 38px;
-    margin-bottom: 50%;
-  }
+  background: rgba(0, 0, 0, 0.3);
   .el-upload__tip_code {
     width: 100%;
     font-size: 13px;
   }
-  .el-upload{
-    height: 120px;
+  .el-upload {
+    height: 10vmin;
+    min-height: 80px;
   }
+  button {
+    width: 30%;
+    margin-top: 8%;
+  }
+}
+.changelogo {
+  padding: 0.7vmin 0 !important;
 }
 .bgset {
   width: 100%;
@@ -93,6 +99,5 @@ export default {
     color: #028fee;
   }
 }
-
 </style>
 

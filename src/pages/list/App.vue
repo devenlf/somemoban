@@ -28,7 +28,7 @@
           <span>{{data.username}}</span>
         </div>
         <div class="chat-content" :class="{'styleborder':isShow(3)}"  @click="addClass(3)">
-          <p>{{data.chatContent}}</p>
+          <span>{{data.chatContent}}</span>
         </div>
         <div class="chat-date" :class="{'styleborder':isShow(4)}"  @click="addClass(4)">
           <span>{{data.date}}</span>
@@ -60,28 +60,28 @@ export default {
     return {
       current: 0,
       bannerText: {
-        titletxt: '1',
-        carbon: '2'
+        titletxt: '2015法拉利环球国际展-上海站',
+        carbon: '热烈欢迎来自五湖四海的广大车友们'
       },
-      type: 0,
+      type: 3,
       chatData: [
         {
           userimg: '../../../static/image/user0.jpg',
-          username: '王大壮',
-          date: '2018-11-1',
-          chatContent: '厉害了老铁'
+          username: '王大颗',
+          date: '2017-03-27 16:25:01',
+          chatContent: '我是上墙小能手'
         },
         {
           userimg: '../../../static/image/user1.jpg',
-          username: '王大壮',
-          date: '2018-11-1',
-          chatContent: '厉害了老铁'
+          username: 'Vicky',
+          date: '2017-03-27 16:25:01',
+          chatContent: '感谢主办方的盛情款待~'
         },
         {
           userimg: '../../../static/image/user2.jpg',
-          username: '王大壮',
-          date: '2018-11-1',
-          chatContent: '厉害了老铁'
+          username: '朱朱',
+          date: '2017-03-27 16:25:01',
+          chatContent: '预告预告，前方高能！'
         }
       ]
     }
@@ -136,6 +136,7 @@ body {
 
 .chat-bg-0 {
   .chat-bg {
+    // border: 2px solid rgba($color: #fff600, $alpha: 0) !important;
     border-radius: 5vw;
     background: rgba($color: white, $alpha: 0.2);
     height: 90%;
@@ -202,7 +203,6 @@ body {
   .user-name {
     left: 23%;
   }
-
   .chat-content {
     left: 23%;
   }
@@ -218,6 +218,7 @@ body {
   top: 0.5%;
   margin-top: 1.5%;
   position: relative;
+  border: 2px solid rgba($color: #fff600, $alpha: 0) !important;
 }
 
 .user-img {
@@ -227,6 +228,7 @@ body {
   top: 47%;
   left: 8%;
   overflow: hidden;
+  border: 2px solid rgba($color: #fff600, $alpha: 0) !important;
   img {
     width: 100%;
     display: block;
@@ -235,6 +237,7 @@ body {
 
 .user-name {
   position: absolute;
+  border: 2px solid rgba($color: #fff600, $alpha: 0) !important;
   width: 20%;
   top: 20%;
   left: 16%;
@@ -252,19 +255,19 @@ body {
 .chat-content {
   position: absolute;
   width: 62%;
-  height: 28%;
   top: 42%;
   left: 16%;
-  vertical-align: middle;
-  p {
+  border: 2px solid rgba($color: #ffffff, $alpha: 0) !important;
+  span {
     font-size: 3.6vmin;
-    // font-weight: 600;
     margin-top: 0px;
     font-family: "MicrosoftYaHei";
+    margin: 0px;
   }
 }
 
 .chat-date {
+  border: 2px solid rgba($color: #fff600, $alpha: 0) !important;
   position: absolute;
   width: 30%;
   // height: 20%;
@@ -282,10 +285,10 @@ body {
 }
 
 .styleborder {
-  border: 2px solid rgba($color: yellow, $alpha: 1) !important;
+  border: 2px solid rgba($color: #fff600, $alpha: 1) !important;
 }
 .square:before {
-  border-right: 1.8vmin solid rgba($color: yellow, $alpha: 1) !important;
+  border-right: 1.8vmin solid rgba($color: #fff600, $alpha: 1) !important;
 }
 .el-row {
   height: 100%;
@@ -333,13 +336,13 @@ body {
   h2 {
     margin: 0px;
     color: white;
-    font-size: 2rem;
+    font-size: 3。2vmin;
   }
   span {
     display: block;
     margin-top: 0.2rem;
-    color: white;
-    font-size: 1.5rem;
+    color: #999;
+    font-size: 2vmin;
   }
 }
 .bgimgby {
