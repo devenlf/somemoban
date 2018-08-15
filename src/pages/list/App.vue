@@ -25,7 +25,7 @@
         <div class="user-img" :class="{'styleborder':isShow(1)}"  @click="addClass(1)">
           <img :src="data.userimg" alt="">
         </div>
-        <div class="user-name" :class="{'styleborder':isShow(2)}"  @click="addClass(2)">
+        <div class="user-name" :class="{'styleborder':isShow(2)}" :style="{color:nameColorRGBAValue}" @click="addClass(2)">
           <span>{{data.username}}</span>
         </div>
         <div class="chat-content" :class="{'styleborder':isShow(3)}"  @click="addClass(3)">
@@ -59,11 +59,12 @@ import chatContent from './components/chat-content'
 import chatDate from './components/chat-date'
 import guideLogo from './guide-page/guide-page'
 
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
       current: 0,
-      isGuideing: true,
+      isGuideing: false,
       bannerText: {
         titletxt: '2015法拉利环球国际展-上海站',
         carbon: '热烈欢迎来自五湖四海的广大车友们'
@@ -100,7 +101,6 @@ export default {
       return this.current === id
     },
     changeData(num) {
-      console.log(this.current)
       if (this.current >= 4) {
         this.isGuideing = false
         return
@@ -127,7 +127,8 @@ export default {
         default:
       }
       return currentStyle
-    }
+    },
+    ...mapGetters(['nameColorRGBAValue', 'nameIsShowBg'])
   },
   components: {
     'v-chatBgSet': chatBgSet,

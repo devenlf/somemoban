@@ -37,40 +37,48 @@
   </div>
 </template>
 <script>
+import store from '../store'
 export default {
   data() {
     return {
       isShowUsername: true,
       colorInit: '#ffffff',
       colorList: [
-        { color: '#cccccc' },
-        { color: '#8F4040' },
-        { color: '#4A3434' },
-        { color: '#E09D9D' },
-        { color: '#B00606' },
-        { color: '#D27979' }
+        { color: '#ffffff' },
+        { color: '#3BA6D7' },
+        { color: '#30BD76' },
+        { color: '#FC8E2C' },
+        { color: '#FD5F7D' },
+        { color: '#ACAFB7' },
+        { color: '#A9F1A4' },
+        { color: '#C663FF' },
+        { color: '#60D7EC' },
+        { color: '#028FEE' },
+        { color: '#8864FF' },
+        { color: '#7683A4' },
+        { color: '#FFAA94' },
+        { color: '#FFE361' },
+        { color: '#F54C4C' }
       ],
       colorOpcity: 50
     }
   },
-  computed: {
-
-  },
+  computed: {},
   created: function() {},
   methods: {
     getColor(data) {
-      console.log(data)
+      store.commit('setColorName', data.color)
     },
     setColor() {
       console.log(12313)
     },
     formatTooltip(val) {
+      store.commit('setOpacityName', val)
       return val / 100
     }
   }
 }
 </script>
 <style lang="scss">
-
 </style>
 
