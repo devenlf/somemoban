@@ -9,6 +9,7 @@
       <span class="cueColor" v-else>隐藏</span>
       <el-switch
         v-model="isShowUsername"
+        @change="userNameIsShow"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
@@ -71,6 +72,9 @@ export default {
     },
     setColor() {
       console.log(12313)
+    },
+    userNameIsShow() {
+      store.commit('setIsShowName', this.isShowUsername)
     },
     formatTooltip(val) {
       store.commit('setOpacityName', val)

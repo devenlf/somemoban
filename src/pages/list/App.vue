@@ -26,7 +26,7 @@
           <img :src="data.userimg" alt="">
         </div>
         <div class="user-name" :class="{'styleborder':isShow(2)}" :style="{color:nameColorRGBAValue}" @click="addClass(2)">
-          <span>{{data.username}}</span>
+          <span :style="{'visibility':nameIsShowBg}">{{data.username}}</span>
         </div>
         <div class="chat-content" :class="{'styleborder':isShow(3)}"  @click="addClass(3)">
           <span>{{data.chatContent}}</span>
@@ -238,7 +238,7 @@ body {
   top: 0.5%;
   margin-top: 1.5%;
   position: relative;
-  border: 2px solid rgba($color: #fff600, $alpha: 0) !important;
+  border: 1px dashed rgba($color: #cccccc, $alpha: 0.9) !important;
 }
 
 .user-img {
@@ -249,7 +249,7 @@ body {
   top: 47%;
   left: 8%;
   overflow: hidden;
-  border: 2px solid rgba($color: #fff600, $alpha: 0) !important;
+  border: 1px dashed rgba($color: #cccccc, $alpha: 0.9) !important;
   img {
     width: 100%;
     display: block;
@@ -259,7 +259,7 @@ body {
 .user-name {
   cursor: pointer;
   position: absolute;
-  border: 2px solid rgba($color: #fff600, $alpha: 0) !important;
+  border: 1px dashed rgba($color: #cccccc, $alpha: 0.9) !important;
   width: 20%;
   top: 20%;
   left: 16%;
@@ -279,7 +279,7 @@ body {
   width: 62%;
   top: 42%;
   left: 16%;
-  border: 2px solid rgba($color: #ffffff, $alpha: 0) !important;
+  border: 1px dashed rgba($color: #cccccc, $alpha: 0.9) !important;
   span {
     font-size: 3.6vmin;
     margin-top: 0px;

@@ -21,7 +21,6 @@ const module = {
   actions: { },
   getters: {
     topColorRGBAValue: state => {
-      console.log(state.colorRGBA)
       return state.colorRGBA
     },
     topIsShowBg: state => {
