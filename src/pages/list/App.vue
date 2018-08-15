@@ -57,11 +57,13 @@ import chatUserImg from './components/chat-user-img'
 import chatUserName from './components/chat-user-name'
 import chatContent from './components/chat-content'
 import chatDate from './components/chat-date'
+import guideLogo from './guide-page/guide-page'
 
 export default {
   data() {
     return {
       current: 0,
+      isGuideing: true,
       bannerText: {
         titletxt: '2015法拉利环球国际展-上海站',
         carbon: '热烈欢迎来自五湖四海的广大车友们'
@@ -96,6 +98,14 @@ export default {
     },
     isShow(id) {
       return this.current === id
+    },
+    changeData(num) {
+      console.log(this.current)
+      if (this.current >= 4) {
+        this.isGuideing = false
+        return
+      }
+      this.current++
     }
   },
   computed: {
@@ -124,7 +134,8 @@ export default {
     'v-chatUserImg': chatUserImg,
     'v-chatUserName': chatUserName,
     'v-chatContent': chatContent,
-    'v-chatDate': chatDate
+    'v-chatDate': chatDate,
+    'V-guideLogo': guideLogo
   }
 }
 </script>
@@ -137,8 +148,8 @@ body {
   margin: 0 auto;
 }
 .content-back{
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   position: relative;
 }
 .chat-bg-0 {
@@ -307,7 +318,6 @@ body {
 }
 .logo {
   position: absolute;
-  z-index: 99;
   width: 12%;
   top: 10%;
   left: 6%;
@@ -331,11 +341,11 @@ body {
   left: 50%;
   width: 60%;
   height: 50%;
+  z-index: 1;
 }
 
 .banner {
   position: absolute;
-  z-index: 99;
   transform: translate(-50%, -50%);
   width: 56%;
   height: 8%;
