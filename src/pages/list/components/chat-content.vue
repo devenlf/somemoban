@@ -95,8 +95,7 @@ export default {
   margin-bottom: 5%;
 }
 .checkTxt {
-  min-width: 255px;
-  margin-left: 8%;
+  text-indent: 8%;
   width: 100%;
   height: 40px;
   min-height: 40px;

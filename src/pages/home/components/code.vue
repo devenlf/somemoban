@@ -56,10 +56,10 @@ export default {
 }
 .current-show-code {
   position: absolute;
-  height: 12vmin;
-  width: 12vmin;
-  min-width: 100px;
-  min-height: 100px;
+  height: 11.6vmin;
+  width: 11.6vmin;
+  min-width: 96px;
+  min-height: 96px;
   left: 5%;
   display: block;
   z-index: -2;

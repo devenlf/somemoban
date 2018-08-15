@@ -56,7 +56,7 @@ export default {
 }
 .current-show-logo{
   position: absolute;
-  width: 90%;
+  width: 86%;
   height: 100%;
   left: 5%;
   display: block;

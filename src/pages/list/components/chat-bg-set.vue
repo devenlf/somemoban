@@ -44,6 +44,14 @@
     text-indent: 8%;
     font-weight: bold;
   }
+  .cueColor {
+  text-indent: 5% !important;
+  font-size: 13px;
+  color: #999;
+  letter-spacing: 1px;
+  margin-right: 3%;
+  float: right !important;
+}
 }
 
 .block {

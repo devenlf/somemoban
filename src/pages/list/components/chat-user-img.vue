@@ -119,14 +119,7 @@ export default {
   margin-bottom: 8%;
   margin-top: 3%;
 }
-.cueColor {
-  text-indent: 5% !important;
-  font-size: 13px;
-  color: #999;
-  letter-spacing: 1px;
-  margin: 1px;
-  float: right !important;
-}
+
 .el-switch {
   margin-top: 10px;
   float: right;

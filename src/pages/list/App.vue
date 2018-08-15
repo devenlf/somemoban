@@ -63,7 +63,7 @@ export default {
         titletxt: '2015法拉利环球国际展-上海站',
         carbon: '热烈欢迎来自五湖四海的广大车友们'
       },
-      type: 3,
+      type: 0,
       chatData: [
         {
           userimg: '../../../static/image/user0.jpg',
@@ -146,7 +146,7 @@ body {
     border-radius: 50%;
   }
   .chat-date {
-    color: #ccc;
+    color: rgba(#ffffff, 0.7);
   }
   color: #ffffff;
 }
@@ -158,7 +158,7 @@ body {
     background: rgba($color: white, $alpha: 0.2);
   }
   .chat-date {
-    color: #ccc;
+    color: rgba(#ffffff, 0.7);
   }
   color: #ffffff;
 }
@@ -213,6 +213,7 @@ body {
 }
 
 .chat-box {
+  cursor: pointer;
   height: 30%;
   width: 100%;
   top: 0.5%;
@@ -222,6 +223,7 @@ body {
 }
 
 .user-img {
+  cursor: pointer;
   position: absolute;
   width: 10vmin;
   transform: translate(-50%, -50%);
@@ -236,6 +238,7 @@ body {
 }
 
 .user-name {
+  cursor: pointer;
   position: absolute;
   border: 2px solid rgba($color: #fff600, $alpha: 0) !important;
   width: 20%;
@@ -246,13 +249,13 @@ body {
     height: 100%;
     display: block;
     line-height: 100%;
-    margin-top: 2%;
     font-family: "MicrosoftYaHei";
     font-weight: bold;
   }
 }
 
 .chat-content {
+  cursor: pointer;
   position: absolute;
   width: 62%;
   top: 42%;
@@ -267,10 +270,10 @@ body {
 }
 
 .chat-date {
+  cursor: pointer;
   border: 2px solid rgba($color: #fff600, $alpha: 0) !important;
   position: absolute;
   width: 30%;
-  // height: 20%;
   top: 20%;
   left: 62%;
   span {
@@ -278,7 +281,6 @@ body {
     height: 100%;
     display: block;
     line-height: 1.4vmin;
-    margin-top: 4%;
     font-family: "MicrosoftYaHei";
     text-align: right;
   }
