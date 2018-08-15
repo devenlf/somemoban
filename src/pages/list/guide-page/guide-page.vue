@@ -1,6 +1,6 @@
 <template>
   <el-row class="logo-guide-background">
-    <el-col :span="19" class="right-set-back" :class="{'right-set-back-show':currentData<3}">
+    <el-col :span="19" class="right-set-back">
       <div class="logo-back-show">
         <div class="logo-show">
           <template v-if="currentData===0">
@@ -67,7 +67,7 @@ export default {
   width: 100%;
   height: 100%;
   top: 0px;
-  z-index: 90;
+  z-index: 900;
 }
 .right-set-back {
   display: block;

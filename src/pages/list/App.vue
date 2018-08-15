@@ -1,4 +1,5 @@
 <template>
+<div class="content-back">
   <el-row >
   <el-col :span="19">
     <div class="grid-content bg-left">
@@ -45,6 +46,8 @@
       <v-chatDate v-show="isShow(4)"></v-chatDate>
     </div></el-col>
   </el-row>
+  <V-guideLogo v-if="isGuideing" @change-current="changeData" :currentData="current"/>
+</div>
 </template>
 
 
@@ -133,7 +136,11 @@ body {
   height: 100%;
   margin: 0 auto;
 }
-
+.content-back{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
 .chat-bg-0 {
   .chat-bg {
     // border: 2px solid rgba($color: #fff600, $alpha: 0) !important;

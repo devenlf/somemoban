@@ -2,7 +2,7 @@
 <div class="content-back">
   <el-row >
   <el-col :span="19"><div class="grid-content bg-left">
-    <div class="bgimgby" :class="{'styleborder':isShow(4)}"  @click="addClass(4)">
+    <div class="bgimgby" :class="{'styleborder':isShow(3)}"  @click="addClass(3)">
       <img class="bgimg" src="../../../static/image/635869062716808792.jpg" alt="">
     </div>
     <div class="logo" :class="{'styleborder':isShow(0),'prepose-style':isShow(0)}"  @click="addClass(0)">
@@ -15,20 +15,20 @@
       <h2>{{bannerText.titletxt}}</h2>
       <span>{{bannerText.carbon}}</span>
     </div>
-    <div class="foreground" v-if="topIsShowBg" :class="{'styleborder':isShow(3),'prepose-style':isShow(3)}" :style="{background:topColorRGBAValue}" @click="addClass(3)">
+    <!-- <div class="foreground" v-if="topIsShowBg" :class="{'styleborder':isShow(3),'prepose-style':isShow(3)}" :style="{background:topColorRGBAValue}" @click="addClass(3)">
 
-    </div>
+    </div> -->
  
     </div></el-col>
   <el-col :span="5"><div class="grid-content bg-right">
-      <v-bgimg v-show="isShow(4)"></v-bgimg>
+      <v-bgimg v-show="isShow(3)"></v-bgimg>
       <v-logo v-show="isShow(0)"></v-logo>
       <v-code v-show="isShow(1)"></v-code>
       <v-titleBanner v-show="isShow(2)" @change="changeTxt" :bannerTxt="bannerText"></v-titleBanner>
-      <v-topcolor v-show="isShow(3)"></v-topcolor>
+      <v-topcolor v-show="false"></v-topcolor>
     </div></el-col>
   </el-row>
-    <V-guideLogo :currentData="current"/>
+    <V-guideLogo v-if="isGuideing" @change-current="changeData" :currentData="current"/>
 </div>
 </template>
 
@@ -46,6 +46,7 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
+      isGuideing: true,
       current: 0,
       bannerText: {
         titletxt: '2015法拉利环球国际展-上海站',
@@ -65,6 +66,13 @@ export default {
     },
     changeTxt(data) {
       this.bannerText[data.type] = data.value
+    },
+    changeData(num) {
+      if (this.current >= 3) {
+        this.isGuideing = false
+        return
+      }
+      this.current++
     }
   },
   components: {
@@ -88,10 +96,13 @@ body {
 .content-back{
   position: relative;
 }
-.styleborder {
+.prepose-style{
   z-index: 99;
+}
+.styleborder {
   border: 2px solid #fff600 !important;
 }
+
 .el-row {
   height: 100vh;
   .el-col {
@@ -100,7 +111,6 @@ body {
 }
 .logo {
   position: absolute;
-  // z-index: 99;
   width: 13vmin;
   height: 7.6vmin;
   top: 10%;
@@ -118,14 +128,12 @@ body {
   left: 50%;
   width: 60%;
   height: 50%;
-  // z-index:99;
 }
 .el-slider__button-wrapper{
   z-index: 90 !important;
 }
 .banner {
   position: absolute;
-  // z-index: 99;
   transform: translate(-50%, -50%);
   width: 56%;
   top: 13vh;
@@ -164,7 +172,6 @@ body {
   left: 90%;
   top: 10%;
   border: 1px dashed white;
-  // z-index: 99;
   img {
     display: block;
     margin: 10%;
