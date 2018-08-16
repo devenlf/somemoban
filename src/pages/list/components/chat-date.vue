@@ -9,6 +9,7 @@
       <span class="cueColor" v-else>隐藏</span>
       <el-switch
         v-model="isShowDate"
+        @change="changeDateIsShow"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
@@ -45,6 +46,7 @@
   </div>
 </template>
 <script>
+import store from '../store'
 export default {
   data() {
     return {
@@ -81,13 +83,14 @@ export default {
   created: function() {},
   methods: {
     getColor(data) {
-      console.log(data)
-    },
-    setColor() {
-      console.log(12313)
+      store.commit('setColorDate', data.color)
     },
     formatTooltip(val) {
+      store.commit('setOpacityDate', val)
       return val / 100
+    },
+    changeDateIsShow() {
+      store.commit('setIsShowDate', this.isShowDate)
     }
   }
 }

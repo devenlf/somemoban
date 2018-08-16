@@ -3,28 +3,21 @@ const module = {
   state: {
     color: '#000000',
     opacity: '30',
-    isShow: true,
     colorRGBA: ''
   },
   mutations: {
-    setColorTop(state, newColor) {
+    setColorContent(state, newColor) {
       state.color = newColor
       state.colorRGBA = hexToRgba(newColor, state.opacity)
     },
-    setOpacityTop(state, newOpacity) {
+    setOpacityContent(state, newOpacity) {
       state.colorRGBA = hexToRgba(state.color, newOpacity)
-    },
-    setIsShowTop(state, bool) {
-      state.isShow = bool
     }
   },
   actions: { },
   getters: {
-    topColorRGBAValue: state => {
+    contentColorRGBAValue: state => {
       return state.colorRGBA
-    },
-    topIsShowBg: state => {
-      return state.isShow
     }
   }
 }

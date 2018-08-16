@@ -3,7 +3,7 @@ const module = {
   state: {
     color: '#000000',
     opacity: '100',
-    isShow: true,
+    isShowName: true,
     colorRGBA: ''
   },
   mutations: {
@@ -15,7 +15,7 @@ const module = {
       state.colorRGBA = hexToRgba(state.color, newOpacity)
     },
     setIsShowName(state, bool) {
-      state.isShow = bool
+      state.isShowName = bool
     }
   },
   actions: { },
@@ -24,7 +24,7 @@ const module = {
       return state.colorRGBA
     },
     nameIsShowBg: state => {
-      return (state.isShow ? 'visible' : 'hidden' )
+      return (state.isShowName ? 'visible' : 'hidden')
     }
   }
 }

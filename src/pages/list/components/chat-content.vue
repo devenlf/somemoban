@@ -51,6 +51,7 @@
   </div>
 </template>
 <script>
+import store from '../store'
 export default {
   data() {
     return {
@@ -76,7 +77,6 @@ export default {
         { color: '#F54C4C' }
       ],
       value: '',
-      options: [{ value: 0, label: '2017-03-23 15:23:3' }, { value: 1, label: '2017年1月23日 21:23:00' }],
       colorOpcity: 50
     }
   },
@@ -88,12 +88,13 @@ export default {
   created: function() {},
   methods: {
     getColor(data) {
-      console.log(data)
+      store.commit('setColorContent', data.color)
     },
     setColor() {
       console.log(12313)
     },
     formatTooltip(val) {
+      store.commit('setOpacityContent', val)
       return val / 100
     }
   }

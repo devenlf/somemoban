@@ -9,22 +9,24 @@
       <span class="cueColor" v-else>隐藏</span>
         <el-switch
         v-model="isShowFaceImg"
+        @change="userImgIsShow"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
       </div>
        <p class="chooseStyle">形状</p>
        <div class="choose-style-box">
-      <div class="round img-user">
+      <div class="round img-user" @click="changeShape(false)">
         <img src="../../../../static/image/user1.jpg" alt="">
       </div>
-      <div class="square img-user">
+      <div class="square img-user" @click="changeShape(true)">
         <img src="../../../../static/image/user1.jpg" alt="">
       </div>
       </div>
   </div>
 </template>
 <script>
+import store from '../store'
 export default {
   data() {
     return {
@@ -37,8 +39,15 @@ export default {
       return this.radio === 1
     }
   },
-  created: function() {},
-  methods: {}
+  methods: {
+    changeShape(bool) {
+      store.commit('changeuserImgActive', bool)
+    },
+    userImgIsShow() {
+      store.commit('setIsShowuserImg', this.isShowFaceImg)
+    }
+  },
+  created: function() {}
 }
 </script>
 <style lang="scss">
@@ -48,7 +57,7 @@ export default {
 }
 .chooseStyle {
   font-size: 1.2vmin;
-  font-family: 'MicrosoftYaHei';
+  font-family: "MicrosoftYaHei";
   margin-left: 8%;
   font-weight: bold;
 }
@@ -105,8 +114,8 @@ export default {
     font-size: 15px;
     color: #028fee;
     font-weight: bold;
-    span{
-      margin-left: 8%
+    span {
+      margin-left: 8%;
     }
   }
 }

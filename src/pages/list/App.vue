@@ -22,17 +22,17 @@
       <template v-for="(data,index) in chatData">
         <div class="chat-box" :class="setStyleType" :key="index">
         <div class="chat-bg" :class="{'styleborder':isShow(0),'square':isShow(0)}"  @click="addClass(0)"></div>
-        <div class="user-img" :class="{'styleborder':isShow(1)}"  @click="addClass(1)">
-          <img :src="data.userimg" alt="">
+        <div class="user-img" :class="{'styleborder':isShow(1)}" :style="{'border-radius':(userImgShaepe?'0%':'50%')}"  @click="addClass(1)">
+          <img :style="{'visibility':userImgIsShowBg}" :src="data.userimg" alt="">
         </div>
         <div class="user-name" :class="{'styleborder':isShow(2)}" :style="{color:nameColorRGBAValue}" @click="addClass(2)">
           <span :style="{'visibility':nameIsShowBg}">{{data.username}}</span>
         </div>
-        <div class="chat-content" :class="{'styleborder':isShow(3)}"  @click="addClass(3)">
+        <div class="chat-content" :class="{'styleborder':isShow(3)}" :style="{color:contentColorRGBAValue}"  @click="addClass(3)">
           <span>{{data.chatContent}}</span>
         </div>
-        <div class="chat-date" :class="{'styleborder':isShow(4)}"  @click="addClass(4)">
-          <span>{{data.date}}</span>
+        <div class="chat-date" :class="{'styleborder':isShow(4)}" :style="{color:dateColorRGBAValue}"  @click="addClass(4)">
+          <span :style="{'visibility':dateIsShowBg}">{{data.date}}</span>
         </div>
         </div>
       </template>
@@ -65,6 +65,7 @@ export default {
     return {
       current: 0,
       isGuideing: false,
+      isSquare: false,
       bannerText: {
         titletxt: '2015法拉利环球国际展-上海站',
         carbon: '热烈欢迎来自五湖四海的广大车友们'
@@ -128,7 +129,15 @@ export default {
       }
       return currentStyle
     },
-    ...mapGetters(['nameColorRGBAValue', 'nameIsShowBg'])
+    ...mapGetters([
+      'nameColorRGBAValue',
+      'nameIsShowBg',
+      'contentColorRGBAValue',
+      'userImgShaepe',
+      'userImgIsShowBg',
+      'dateColorRGBAValue',
+      'dateIsShowBg'
+    ])
   },
   components: {
     'v-chatBgSet': chatBgSet,
@@ -148,7 +157,7 @@ body {
   height: 100%;
   margin: 0 auto;
 }
-.content-back{
+.content-back {
   height: 100vh;
   width: 100vw;
   position: relative;
