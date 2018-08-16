@@ -32,7 +32,7 @@
           <span>{{data.chatContent}}</span>
         </div>
         <div class="chat-date" :class="{'styleborder':isShow(4)}" :style="{color:dateColorRGBAValue}"  @click="addClass(4)">
-          <span :style="{'visibility':dateIsShowBg}">{{data.date}}</span>
+          <span :style="{'visibility':dateIsShowBg}">{{data.date[dateFormatTypeValue]}}</span>
         </div>
         </div>
       </template>
@@ -75,19 +75,19 @@ export default {
         {
           userimg: '../../../static/image/user0.jpg',
           username: '王大颗',
-          date: '2017-03-27 16:25:01',
+          date: ['2017-03-27 16:25:01', '2017年1月23日 21:23:00'],
           chatContent: '我是上墙小能手'
         },
         {
           userimg: '../../../static/image/user1.jpg',
           username: 'Vicky',
-          date: '2017-03-27 16:25:01',
+          date: ['2017-03-27 16:25:01', '2017年1月23日 21:23:00'],
           chatContent: '感谢主办方的盛情款待~'
         },
         {
           userimg: '../../../static/image/user2.jpg',
           username: '朱朱',
-          date: '2017-03-27 16:25:01',
+          date: ['2017-03-27 16:25:01', '2017年1月23日 21:23:00'],
           chatContent: '预告预告，前方高能！'
         }
       ]
@@ -118,7 +118,8 @@ export default {
       'userImgIsShowBg',
       'dateColorRGBAValue',
       'dateIsShowBg',
-      'userBgTypeChange'
+      'userBgTypeChange',
+      'dateFormatTypeValue'
     ])
   },
   components: {

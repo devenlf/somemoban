@@ -4,7 +4,8 @@ const module = {
     color: '#000000',
     opacity: '30',
     isShowDate: true,
-    colorRGBA: ''
+    colorRGBA: '',
+    dateFormatType: 0
   },
   mutations: {
     setColorDate(state, newColor) {
@@ -17,9 +18,13 @@ const module = {
     setIsShowDate(state, bool) {
       state.isShowDate = bool
     },
+    setDtaeTypeFormat(state, value) {
+      state.dateFormatType = value
+    },
     customAllDate(state, colorvalue) {
       state.colorRGBA = colorvalue
       state.isShowDate = true
+      state.dateFormatType = 0
     }
   },
   actions: { },
@@ -29,6 +34,9 @@ const module = {
     },
     dateIsShowBg: state => {
       return (state.isShowDate ? 'visible' : 'hidden')
+    },
+    dateFormatTypeValue: state => {
+      return state.dateFormatType
     }
   }
 }

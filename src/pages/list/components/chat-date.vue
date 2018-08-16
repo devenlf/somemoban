@@ -35,7 +35,7 @@
         </div>
         <hr>
         <p class="time-style">选择时间格式</p>
-        <el-select v-model="value" >
+        <el-select v-model="value" @change="changeDateFormatActive(value)">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -71,7 +71,10 @@ export default {
         { color: '#F54C4C' }
       ],
       value: '',
-      options: [{ value: 0, label: '2017-03-23 15:23:3' }, { value: 1, label: '2017年1月23日 21:23:00' }],
+      options: [
+        { value: 0, label: '2017-03-23 15:23:3' },
+        { value: 1, label: '2017年1月23日 21:23:00' }
+      ],
       colorOpcity: 50
     }
   },
@@ -96,17 +99,19 @@ export default {
       if (value) {
         store.commit('setColorDate', value)
       }
+    },
+    changeDateFormatActive(value) {
+      store.commit('setDtaeTypeFormat', value)
     }
   }
 }
 </script>
 
 <style lang="scss">
-
-hr{
+hr {
   margin-top: 5%;
 }
-.time-style{
+.time-style {
   margin-top: 8%;
   margin-left: 8%;
   font-size: 13px;
@@ -132,7 +137,7 @@ hr{
     z-index: 100;
     top: 0;
   }
- .el-color-picker__trigger {
+  .el-color-picker__trigger {
     width: 100%;
     height: 100%;
     display: block;
@@ -175,7 +180,7 @@ hr{
   float: left;
   margin-left: 8%;
 }
-.opcityValue{
+.opcityValue {
   float: left;
   margin-top: 4%;
   margin-left: 6%;
