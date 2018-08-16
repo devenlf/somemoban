@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       current: 0,
-      isGuideing: false,
+      isGuideing: true,
       isSquare: false,
       bannerText: {
         titletxt: '2015法拉利环球国际展-上海站',

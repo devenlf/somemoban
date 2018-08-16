@@ -195,17 +195,17 @@ export default {
     border-radius: 1vmin;
     background: #fff600;
     position: absolute;
-    top: 63vmin;
-    left: 63.3vmin;
+    top: 65.4vmin;
+    left: 58.3vmin;
   }
   .line {
-    width: 20vmin;
+    width: 10vmin;
     height: 10vmin;
-    border-top: 0.3vmin dashed #fff600;
-    border-right: 0.3vmin dashed #fff600;
+    border-bottom: 0.3vmin dashed #fff600;
+    border-left: 0.3vmin dashed #fff600;
     position: absolute;
-    top: 64vmin;
-    left: 65.6vmin;
+    top: 67.6vmin;
+    left: 59vmin;
   }
   .txt-box {
     width: 54vmin;
@@ -216,7 +216,7 @@ export default {
     text-align: center;
     position: absolute;
     top: 74.5vmin;
-    left: 74vmin;
+    left: 70vmin;
     color: #970e00;
     font-size: 2.3vmin
   }
@@ -229,7 +229,7 @@ export default {
     text-align: center;
     position: absolute;
     top: 75.3vmin;
-    left: 130vmin;
+    left: 125vmin;
     color: #fff600;
     cursor: pointer;
     font-size: 3vmin
@@ -287,13 +287,13 @@ export default {
 //样式chat-content
 .guide-chat-date {
   .dot {
-    width: 1vmin;
-    height: 1vmin;
+    width: 1.5vmin;
+    height: 1.5vmin;
     border-radius: 1vmin;
     background: #fff600;
     position: absolute;
-    top: 65.5vmin;
-    left: 97.5vmin;
+    top: 65vmin;
+    left: 97.3vmin;
   }
   .line {
     width: 10vmin;

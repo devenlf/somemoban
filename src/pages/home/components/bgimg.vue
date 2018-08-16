@@ -18,7 +18,7 @@
   <div class="upload-demo">
     <el-upload
         class="upload-demo-bg"
-        action="https://jsonplaceholder.typicode.com/posts/"
+        action="http://interactive.31huiyi.com/upload/uploadHandler"
         :file-list="fileList2"
         list-type="picture">
         <el-button size="small" type="primary">上传自定义图片</el-button>

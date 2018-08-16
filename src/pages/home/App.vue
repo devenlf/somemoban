@@ -39,14 +39,12 @@ import code from './components/code'
 import logo from './components/logo'
 import titleBanner from './components/titleBanner'
 import topcolor from './components/topcolor'
-
 import guideLogo from './guide-page/guide-page'
-
 import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      isGuideing: true,
+      isGuideing: false,
       current: 0,
       bannerText: {
         titletxt: '2015法拉利环球国际展-上海站',
