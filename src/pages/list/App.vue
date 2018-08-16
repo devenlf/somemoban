@@ -20,7 +20,7 @@
     </div>
     <div class="chat-conenet-all">
       <template v-for="(data,index) in chatData">
-        <div class="chat-box" :class="setStyleType" :key="index">
+        <div class="chat-box" :class="userBgTypeChange" :key="index">
         <div class="chat-bg" :class="{'styleborder':isShow(0),'square':isShow(0)}"  @click="addClass(0)"></div>
         <div class="user-img" :class="{'styleborder':isShow(1)}" :style="{'border-radius':(userImgShaepe?'0%':'50%')}"  @click="addClass(1)">
           <img :style="{'visibility':userImgIsShowBg}" :src="data.userimg" alt="">
@@ -70,7 +70,7 @@ export default {
         titletxt: '2015法拉利环球国际展-上海站',
         carbon: '热烈欢迎来自五湖四海的广大车友们'
       },
-      type: 0,
+      type: 1,
       chatData: [
         {
           userimg: '../../../static/image/user0.jpg',
@@ -110,25 +110,6 @@ export default {
     }
   },
   computed: {
-    setStyleType() {
-      let currentStyle = ''
-      switch (this.type) {
-        case 0:
-          currentStyle = 'chat-bg-0'
-          break
-        case 1:
-          currentStyle = 'chat-bg-1'
-          break
-        case 2:
-          currentStyle = 'chat-bg-2'
-          break
-        case 3:
-          currentStyle = 'chat-bg-3'
-          break
-        default:
-      }
-      return currentStyle
-    },
     ...mapGetters([
       'nameColorRGBAValue',
       'nameIsShowBg',
@@ -136,7 +117,8 @@ export default {
       'userImgShaepe',
       'userImgIsShowBg',
       'dateColorRGBAValue',
-      'dateIsShowBg'
+      'dateIsShowBg',
+      'userBgTypeChange'
     ])
   },
   components: {
@@ -164,19 +146,11 @@ body {
 }
 .chat-bg-0 {
   .chat-bg {
-    // border: 2px solid rgba($color: #fff600, $alpha: 0) !important;
     border-radius: 5vw;
     background: rgba($color: white, $alpha: 0.2);
     height: 90%;
     width: 100%;
   }
-  .user-img {
-    border-radius: 50%;
-  }
-  .chat-date {
-    color: rgba(#ffffff, 0.7);
-  }
-  color: #ffffff;
 }
 
 .chat-bg-1 {
@@ -184,9 +158,6 @@ body {
     height: 90%;
     width: 100%;
     background: rgba($color: white, $alpha: 0.2);
-  }
-  .chat-date {
-    color: rgba(#ffffff, 0.7);
   }
   color: #ffffff;
 }
@@ -197,9 +168,6 @@ body {
     width: 100%;
     border-radius: 5vw;
     background: rgba($color: #efefef, $alpha: 0.9);
-  }
-  .user-img {
-    border-radius: 50%;
   }
   color: #768ca5;
 }
@@ -233,9 +201,6 @@ body {
   }
   .chat-content {
     left: 23%;
-  }
-  .user-img {
-    border-radius: 50%;
   }
   color: #768ca5;
 }

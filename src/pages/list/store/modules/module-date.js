@@ -16,6 +16,10 @@ const module = {
     },
     setIsShowDate(state, bool) {
       state.isShowDate = bool
+    },
+    customAllDate(state, colorvalue) {
+      state.colorRGBA = colorvalue
+      state.isShowDate = true
     }
   },
   actions: { },

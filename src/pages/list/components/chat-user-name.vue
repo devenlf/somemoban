@@ -23,7 +23,7 @@
           <div class="colorbox  addColor">
             <img src="../../../../static/image/user0.jpg" alt="">
                <span class="el-icon-plus"></span>
-               <el-color-picker  @change="setColor()"  v-model="colorInit"></el-color-picker>
+               <el-color-picker  @change="addOrChangeColor(colorInit)"  v-model="colorInit"></el-color-picker>
           </div>
           <div style="clear:both"></div>
       </div>
@@ -70,15 +70,17 @@ export default {
     getColor(data) {
       store.commit('setColorName', data.color)
     },
-    setColor() {
-      console.log(12313)
-    },
     userNameIsShow() {
       store.commit('setIsShowName', this.isShowUsername)
     },
     formatTooltip(val) {
       store.commit('setOpacityName', val)
       return val / 100
+    },
+    addOrChangeColor(value) {
+      if (value) {
+        store.commit('setColorName', value)
+      }
     }
   }
 }

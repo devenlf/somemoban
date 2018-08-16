@@ -9,6 +9,10 @@ const module = {
     },
     setIsShowuserImg(state, bool) {
       state.userImgIsShow = bool
+    },
+    customAllImg(state, bool) {
+      state.isSquery = bool
+      state.userImgIsShow = true
     }
   },
   getters: {

@@ -16,6 +16,10 @@ const module = {
     },
     setIsShowName(state, bool) {
       state.isShowName = bool
+    },
+    customAllName(state, colorvalue) {
+      state.colorRGBA = colorvalue
+      state.isShowName = true
     }
   },
   actions: { },

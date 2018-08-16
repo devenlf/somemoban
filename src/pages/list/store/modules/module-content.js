@@ -12,6 +12,9 @@ const module = {
     },
     setOpacityContent(state, newOpacity) {
       state.colorRGBA = hexToRgba(state.color, newOpacity)
+    },
+    customAllContent(state, value) {
+      state.colorRGBA = value
     }
   },
   actions: { },
