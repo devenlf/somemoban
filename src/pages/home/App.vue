@@ -12,13 +12,13 @@
         <img :style="{'visibility':changeCodeIsShowValue}" class="codeimg" :src="changeCodeImgValue" alt="">
     </div>
        <div class="banner" :class="{'styleborder':isShow(2),'prepose-style':isShow(2)}"  @click="addClass(2)">
-         <div class="banner-content">
-                 <template v-if="true">
-                    <h2>{{titletxt}}</h2>
-                    <span>{{carbon}}</span>
+         <div class="banner-content" :style="{'visibility':changebannerIsShowValue}">
+                 <template v-if="changebannerTypeValue">
+                    <h2>{{changebannerRoomNameValue}}</h2>
+                    <span>{{changebannerSubTitleValue}}</span>
                   </template> 
                   <template v-else>
-                    <img src="" alt="">
+                    <img class="banner-img" :src="changeBannerImgValue" alt="">
                   </template> 
          </div>
 
@@ -64,7 +64,12 @@ export default {
       'changeCodeImgValue',
       'changeCodeIsShowValue',
       'changeLogoImgValue',
-      'changeLogoIsShowValue'
+      'changeLogoIsShowValue',
+      'changebannerTypeValue',
+      'changebannerIsShowValue',
+      'changebannerRoomNameValue',
+      'changebannerSubTitleValue',
+      'changeBannerImgValue'
     ])
   },
   methods: {
@@ -112,7 +117,14 @@ body {
 .styleborder {
   border: 2px solid #fff600 !important;
 }
-
+.banner-img{
+  width: 100%;
+  height: 100%;
+  display: block
+}
+.banner-content{
+  height: 100%;
+}
 .el-row {
   height: 100vh;
   .el-col {
@@ -148,6 +160,7 @@ body {
   border: 1px dashed white;
   transform: translate(-50%, -50%);
   width: 56%;
+  height: 7vmin;
   top: 13vh;
   left: 50%;
   text-align: center;

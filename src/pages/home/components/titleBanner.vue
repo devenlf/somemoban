@@ -5,29 +5,33 @@
     <div class="head"><span>banner、标题 设置</span></div>
     <div class="choseBg">
       <span class="title">显示banner</span>
-      <span class="cueColor" v-if="isShowTopColor">显示</span>
+      <span class="cueColor" v-if="isShowTitle">显示</span>
       <span class="cueColor" v-else>隐藏</span>
       <el-switch
-        v-model="isShowTopColor"
+        v-model="isShowTitle"
+        @change="changeTitleShow"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
       </div>
       <div class="banner-type">
         <p>banner种类</p>
-         <el-radio-group v-model="radio">
+         <el-radio-group v-model="radio" @change="changeType">
           <el-radio :label="0">文字标题</el-radio>
           <el-radio :label="1">图片标题</el-radio>
         </el-radio-group>
         <div v-if="isShowText">
-          <el-input v-model="titletxt" placeholder="请输入标题" @input="changeData('titletxt',titletxt)"></el-input>
-          <el-input v-model="carbon" placeholder="请输入副本" @input="changeData('carbon',carbon)"></el-input>
+          <el-input v-model="titletxt" placeholder="请输入标题" @input="changeDataRoomName"></el-input>
+          <el-input v-model="carbon" placeholder="请输入副本" @input="changeDataSubTitle"></el-input>
         </div>
         <div class="up-banner-bg" v-else>
         <el-upload
             class="upload-demo-title"
             action="https://jsonplaceholder.typicode.com/posts/"
             :file-list="fileList2"
+            :before-upload="beforeAvatarUpload"
+            :on-error="uploadError"
+            :on-success="logoUploadSuccess"
             list-type="picture">
         <el-button class="titleImgUp" size="small" type="primary">点击上传</el-button>
         </el-upload>
@@ -36,13 +40,14 @@
   </div>
 </template>
 <script>
-// import store from '../store'
+import store from '../store'
 export default {
   data() {
     return {
       index: 4,
-      isShowTopColor: true,
-      radio: 1,
+      isShowTitle: true,
+      radio: 0,
+      fileName: '',
       titletxt: '',
       carbon: '',
       fileList2: [
@@ -59,8 +64,26 @@ export default {
     console.log(this.bannerTxt)
   },
   methods: {
-    changeData(type, value) {
-
+    beforeAvatarUpload(file) {
+      this.fileName = file
+    },
+    uploadError() {
+      console.log('上传失败')
+    },
+    logoUploadSuccess(file) {
+      store.commit('changeBannerImg', this.fileName)
+    },
+    changeType() {
+      store.commit('changebannerType', this.radio)
+    },
+    changeDataRoomName() {
+      store.commit('changebannerRoomName', this.titletxt)
+    },
+    changeDataSubTitle() {
+      store.commit('changebannerSubTitle', this.carbon)
+    },
+    changeTitleShow() {
+      store.commit('changebannerIsShow', this.isShowTitle)
     }
   }
 }

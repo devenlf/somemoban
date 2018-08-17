@@ -24,8 +24,17 @@ const module = {
     }
   },
   getters: {
+    changebannerTypeValue: state => {
+      return !state.bannerType
+    },
     changebannerIsShowValue: state => {
-      return state.logoIsShow ? 'visible' : 'hidden'
+      return state.bannerIsShow ? 'visible' : 'hidden'
+    },
+    changebannerRoomNameValue: state => {
+      return state.bannerRoomName
+    },
+    changebannerSubTitleValue: state => {
+      return state.bannerSubTitle
     },
     changeBannerImgValue: state => {
       return state.BannerImg
