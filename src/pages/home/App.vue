@@ -3,17 +3,25 @@
   <el-row >
   <el-col :span="19"><div class="grid-content bg-left">
     <div class="bgimgby" :class="{'styleborder':isShow(3)}"  @click="addClass(3)">
-      <img class="bgimg" src="../../../static/image/635869062716808792.jpg" alt="">
+      <img class="bgimg" :src="changeBackgroundImgValue" alt="">
     </div>
     <div class="logo" :class="{'styleborder':isShow(0),'prepose-style':isShow(0)}"  @click="addClass(0)">
-      <img class="logoimg" src="../../../static/image/636402237338100756.png" alt="">
+      <img :style="{'visibility':changeLogoIsShowValue}" class="logoimg" :src="changeLogoImgValue" alt="">
     </div>
     <div class="code" :class="{'styleborder':isShow(1),'prepose-style':isShow(1)}"  @click="addClass(1)">
-        <img class="bgimg" src="../../../static/image/code.png" alt="">
+        <img :style="{'visibility':changeCodeIsShowValue}" class="codeimg" :src="changeCodeImgValue" alt="">
     </div>
        <div class="banner" :class="{'styleborder':isShow(2),'prepose-style':isShow(2)}"  @click="addClass(2)">
-      <h2>{{bannerText.titletxt}}</h2>
-      <span>{{bannerText.carbon}}</span>
+         <div class="banner-content">
+                 <template v-if="true">
+                    <h2>{{titletxt}}</h2>
+                    <span>{{carbon}}</span>
+                  </template> 
+                  <template v-else>
+                    <img src="" alt="">
+                  </template> 
+         </div>
+
     </div>
     <!-- <div class="foreground" v-if="topIsShowBg" :class="{'styleborder':isShow(3),'prepose-style':isShow(3)}" :style="{background:topColorRGBAValue}" @click="addClass(3)">
 
@@ -24,7 +32,7 @@
       <v-bgimg v-show="isShow(3)"></v-bgimg>
       <v-logo v-show="isShow(0)"></v-logo>
       <v-code v-show="isShow(1)"></v-code>
-      <v-titleBanner v-show="isShow(2)" @change="changeTxt" :bannerTxt="bannerText"></v-titleBanner>
+      <v-titleBanner v-show="isShow(2)"></v-titleBanner>
       <v-topcolor v-show="false"></v-topcolor>
     </div></el-col>
   </el-row>
@@ -46,14 +54,18 @@ export default {
     return {
       isGuideing: false,
       current: 0,
-      bannerText: {
-        titletxt: '2015法拉利环球国际展-上海站',
-        carbon: '热烈欢迎来自五湖四海的广大车友'
-      }
+      titletxt: '2015法拉利环球国际展-上海站',
+      carbon: '热烈欢迎来自五湖四海的广大车友'
     }
   },
   computed: {
-    ...mapGetters(['topColorRGBAValue', 'topIsShowBg'])
+    ...mapGetters([
+      'changeBackgroundImgValue',
+      'changeCodeImgValue',
+      'changeCodeIsShowValue',
+      'changeLogoImgValue',
+      'changeLogoIsShowValue'
+    ])
   },
   methods: {
     addClass(index) {
@@ -91,10 +103,10 @@ body {
   height: 100vh;
   margin: 0 auto;
 }
-.content-back{
+.content-back {
   position: relative;
 }
-.prepose-style{
+.prepose-style {
   z-index: 99;
 }
 .styleborder {
@@ -111,6 +123,7 @@ body {
   position: absolute;
   width: 13vmin;
   height: 7.6vmin;
+  border: 1px dashed #cccccc;
   top: 10%;
   left: 6%;
   img {
@@ -127,11 +140,12 @@ body {
   width: 60%;
   height: 50%;
 }
-.el-slider__button-wrapper{
+.el-slider__button-wrapper {
   z-index: 90 !important;
 }
 .banner {
   position: absolute;
+  border: 1px dashed white;
   transform: translate(-50%, -50%);
   width: 56%;
   top: 13vh;
@@ -169,7 +183,7 @@ body {
   width: 5%;
   left: 90%;
   top: 10%;
-  border: 1px dashed white;
+  border: 1px dashed #cccccc;
   img {
     display: block;
     margin: 10%;

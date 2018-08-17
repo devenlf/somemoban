@@ -16,8 +16,8 @@
       <div class="banner-type">
         <p>banner种类</p>
          <el-radio-group v-model="radio">
-          <el-radio :label="1">文字标题</el-radio>
-          <el-radio :label="2">图片标题</el-radio>
+          <el-radio :label="0">文字标题</el-radio>
+          <el-radio :label="1">图片标题</el-radio>
         </el-radio-group>
         <div v-if="isShowText">
           <el-input v-model="titletxt" placeholder="请输入标题" @input="changeData('titletxt',titletxt)"></el-input>
@@ -29,22 +29,22 @@
             action="https://jsonplaceholder.typicode.com/posts/"
             :file-list="fileList2"
             list-type="picture">
-        <el-button size="small" type="primary">点击上传</el-button>
+        <el-button class="titleImgUp" size="small" type="primary">点击上传</el-button>
         </el-upload>
         </div>
       </div>
   </div>
 </template>
 <script>
+// import store from '../store'
 export default {
-  props: ['bannerTxt'],
   data() {
     return {
       index: 4,
       isShowTopColor: true,
       radio: 1,
-      titletxt: this.bannerTxt.titletxt,
-      carbon: this.bannerTxt.carbon,
+      titletxt: '',
+      carbon: '',
       fileList2: [
 
       ]
@@ -52,7 +52,7 @@ export default {
   },
   computed: {
     isShowText: function() {
-      return this.radio === 1
+      return this.radio === 0
     }
   },
   created: function() {
@@ -60,11 +60,7 @@ export default {
   },
   methods: {
     changeData(type, value) {
-      const data = {
-        type: type,
-        value: value
-      }
-      this.$emit('change', data)
+
     }
   }
 }
@@ -96,6 +92,9 @@ export default {
     font-size: 15px;
     color: #028fee;
   }
+}
+.titleImgUp{
+  margin-top: 15px !important
 }
 .el-input {
   width: 80%;

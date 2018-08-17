@@ -5,11 +5,11 @@
     <div class="choseBg"><span>选择背景</span></div>
     <div class="block">
     <el-carousel  trigger="click" :autoplay="false">
-    <el-carousel-item v-for="(item) in showAllTitleImg" :key="item.id">
+    <el-carousel-item v-for="(item,index1) in listShowAllTitleImg" :key="item.id">
       <template v-for="(data,index2) in item">
-        <div :key="index2" class="dataBack" :class="{'isClickStyleImg':isChooseImg(data.id)}" @click="addChooseStyleIndex(data.id)" >
+        <div :key="index2" class="dataBack" :class="{'isClickStyleImg':isChooseImg(index1,index2)}" @click="addChooseStyleIndex(index1,index2,data)" >
           <img class="contentImg" src="../../../../static/image/code.png" alt="">
-          <img class="contentDataImg" :src="data.img"  alt="" @click="changeBackImg(data.img)">
+          <img class="contentDataImg" :src="FileUrl+'46x46/crop_true'+data"  alt="" @click="changeBackImg(FileUrl+data)">
         </div>
       </template>
     </el-carousel-item>
@@ -18,6 +18,9 @@
   <div class="upload-demo">
     <el-upload
         class="upload-demo-bg"
+        :before-upload="beforeAvatarUpload"
+        :on-error="uploadError"
+        :on-success="logoUploadSuccess"
         action="http://interactive.31huiyi.com/upload/uploadHandler"
         :file-list="fileList2"
         list-type="picture">
@@ -150,80 +153,82 @@
 </style>
 
 <script>
-// import store from '../store'
+import store from '../store'
 export default {
   data() {
     return {
       index: 0,
+      isUpload: false,
       currentImgBackground: 0,
+      FileUrl: process.env.FILE_DOMAIN,
       showAllTitleImg: [
-        [
-          {
-            img:
-              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-            id: 0
-          },
-          {
-            img:
-              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-            id: 1
-          },
-          {
-            img:
-              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-            id: 2
-          },
-          {
-            img:
-              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-            id: 3
-          },
-          {
-            img:
-              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-            id: 4
-          },
-          {
-            img:
-              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-            id: 5
-          },
-          {
-            img:
-              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-            id: 6
-          }
-        ],
-        [
-          {
-            img:
-              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-            id: 7
-          },
-          {
-            img:
-              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-            id: 8
-          },
-          {
-            img:
-              'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100',
-            id: 9
-          }
-        ]
+        '/Uploads/Files/2015/12/08/0/635851845005372851.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845014727807.jpeg',
+        '/Uploads/Files/2015/12/08/0/635851845021744437.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845028448221.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845040297477.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845048716889.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845055733059.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845099701593.png',
+        '/Uploads/Files/2015/12/08/0/635851845105001824.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845118879149.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845126362846.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845140706204.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845147566492.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845153491654.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845158792378.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845171888937.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845180464354.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845194186360.jpg',
+        '/Uploads/Files/2015/12/08/0/635851845206662979.jpg',
+        '/Uploads/Files/2016/01/13/0/635882785534746419.png',
+        '/Uploads/Files/2016/01/13/0/635882785806258244.png'
       ],
       fileList2: []
     }
   },
-  created: function() {},
+
+  computed: {
+    listShowAllTitleImg: function() {
+      return this.createNewListImg(this.showAllTitleImg)
+    }
+  },
   methods: {
     changeBackImg(value) {
-      // store.commit('setIsShowTop',va)
+      store.commit('changeBackgroundImg', value)
     },
-    addChooseStyleIndex(index) {
+    createNewListImg(array) {
+      const newArray = []
+      const len = array.length
+      const lineNum = len / 8 === 0 ? len / 8 : Math.floor(len / 8 + 1)
+      for (let i = 0; i < lineNum; i++) {
+        const temp = array.slice(i * 8, i * 8 + 8)
+        newArray.push(temp)
+      }
+      return newArray
+    },
+    beforeAvatarUpload(file) {
+      console.log(file)
+    },
+    uploadError() {
+      console.log('上传失败')
+    },
+    logoUploadSuccess() {
+      if (!this.isUpload) {
+        this.showAllTitleImg.unshift('/Uploads/Files/2015/12/08/0/635851845005372851.jpg')
+        this.isUpload = true
+      } else {
+        this.showAllTitleImg[0] = '/Uploads/Files/2015/12/08/0/635851845005372851.jpg'
+      }
+      console.log('上传成功')
+    },
+    addChooseStyleIndex(index1, index2, data) {
+      const index = index1 * 8 + index2
+      console.log(data)
       this.currentImgBackground = index
     },
-    isChooseImg(index) {
+    isChooseImg(index1, index2) {
+      const index = index1 * 8 + index2
       return this.currentImgBackground === index
     }
   }

@@ -1,15 +1,14 @@
 const module = {
   state: {
-    backgroundImg: ''
+    backgroundImg: process.env.FILE_DOMAIN + '/Uploads/Files/2015/12/08/0/635851845005372851.jpg'
   },
   mutations: {
-    setIsShowTop(state, url) {
+    changeBackgroundImg(state, url) {
       state.backgroundImg = url
     }
   },
-  actions: { },
   getters: {
-    topColorBackgroundValue: state => {
+    changeBackgroundImgValue: state => {
       return state.backgroundImg
     }
   }

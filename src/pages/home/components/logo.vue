@@ -1,14 +1,16 @@
 
+import store from '../store';
 
 <template>
   <div class="bgset">
     <div class="head"><span>Logo 设置</span></div>
     <div class="choseBg">
       <span class="title">显示logo</span>
-      <span class="cueColor" v-if="isShowTopColor">显示</span>
+      <span class="cueColor" v-if="isShowLogo">显示</span>
       <span class="cueColor" v-else>隐藏</span>
       <el-switch
-        v-model="isShowTopColor"
+        v-model="isShowLogo"
+        @change="changeLogoState"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
@@ -19,6 +21,9 @@
             class="upload-demo-logo"
             action="https://jsonplaceholder.typicode.com/posts/"
             :file-list="fileList2"
+            :before-upload="beforeAvatarUpload"
+            :on-error="uploadError"
+            :on-success="logoUploadSuccess"
             list-type="picture">
         <el-button class="changelogo" size="small" type="primary">更换logo</el-button>
         <div slot="tip" class="el-upload__tip_code">支持格式：png，jpg，gif，logo</div>
@@ -29,32 +34,39 @@
   </div>
 </template>
 <script>
+import store from '../store'
 export default {
   data() {
     return {
       index: 4,
-      isShowTopColor: true,
-      radio: 1,
-      titletxt: '',
-      carbon: '',
+      isShowLogo: true,
+      fileName: '',
       fileList2: []
     }
   },
-  computed: {
-    isShowText: function() {
-      return this.radio === 1
-    }
-  },
   created: function() {},
-  methods: {}
+  methods: {
+    changeLogoState() {
+      store.commit('changeLogoIsShow', this.isShowLogo)
+    },
+    beforeAvatarUpload(file) {
+      this.fileName = file
+    },
+    uploadError() {
+      console.log('上传失败')
+    },
+    logoUploadSuccess(file) {
+      store.commit('changeLogoImg', this.fileName)
+    }
+  }
 }
 </script>
 <style lang="scss">
-.up-style-logo{
+.up-style-logo {
   position: relative;
   z-index: 99;
 }
-.current-show-logo{
+.current-show-logo {
   position: absolute;
   width: 86%;
   height: 100%;

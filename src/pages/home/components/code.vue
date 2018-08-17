@@ -5,10 +5,11 @@
     <div class="head"><span>二维码 设置</span></div>
     <div class="choseBg">
       <span class="title">显示二维码</span>
-      <span class="cueColor" v-if="isShowTopColor">显示</span>
+      <span class="cueColor" v-if="isShowCode">显示</span>
       <span class="cueColor" v-else>隐藏</span>
       <el-switch
-        v-model="isShowTopColor"
+        v-model="isShowCode"
+        @change="changeLogoState"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
@@ -19,6 +20,9 @@
             class="upload-demo-code"
             action="https://jsonplaceholder.typicode.com/posts/"
             :file-list="fileList2"
+            :before-upload="beforeAvatarUpload"
+            :on-error="uploadError"
+            :on-success="logoUploadSuccess"
             list-type="picture">
         <el-button size="small" type="primary">更换</el-button>
         <div slot="tip" class="el-upload__tip_code">支持格式：png，jpg，gif，logo</div>
@@ -29,15 +33,17 @@
   </div>
 </template>
 <script>
+import store from '../store'
 export default {
   data() {
     return {
       index: 4,
-      isShowTopColor: true,
+      isShowCode: true,
       radio: 1,
       titletxt: '',
       carbon: '',
-      fileList2: []
+      fileList2: [],
+      fileName: ''
     }
   },
   computed: {
@@ -46,7 +52,20 @@ export default {
     }
   },
   created: function() {},
-  methods: {}
+  methods: {
+    changeLogoState() {
+      store.commit('changeCodeIsShow', this.isShowCode)
+    },
+    beforeAvatarUpload(file) {
+      this.fileName = file
+    },
+    uploadError() {
+      console.log('上传失败')
+    },
+    logoUploadSuccess(file) {
+      store.commit('changeCodeImg', this.fileName)
+    }
+  }
 }
 </script>
 <style lang="scss">
