@@ -23,9 +23,7 @@
          </div>
 
     </div>
-    <!-- <div class="foreground" v-if="topIsShowBg" :class="{'styleborder':isShow(3),'prepose-style':isShow(3)}" :style="{background:topColorRGBAValue}" @click="addClass(3)">
-
-    </div> -->
+    <!-- <div class="foreground" v-if="topIsShowBg" :class="{'styleborder':isShow(3),'prepose-style':isShow(3)}" :style="{background:topColorRGBAValue}" @click="addClass(3)"></div> -->
  
     </div></el-col>
   <el-col :span="5"><div class="grid-content bg-right">

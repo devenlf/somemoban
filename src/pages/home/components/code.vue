@@ -15,7 +15,7 @@
       </el-switch>
       </div>
        <div class="up-style-code">
-         <img class="current-show-code" src="../../../../static/image/636402237338100756.png" alt="">
+         <img class="current-show-code" :src="changeCodeImgValue" alt="">
         <el-upload
             class="upload-demo-code"
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -34,6 +34,7 @@
 </template>
 <script>
 import store from '../store'
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -47,9 +48,7 @@ export default {
     }
   },
   computed: {
-    isShowText: function() {
-      return this.radio === 1
-    }
+    ...mapGetters(['changeCodeImgValue'])
   },
   created: function() {},
   methods: {
@@ -63,7 +62,9 @@ export default {
       console.log('上传失败')
     },
     logoUploadSuccess(file) {
-      store.commit('changeCodeImg', this.fileName)
+      console.log(this.fileName)
+      const codeUrl = 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1855790068,611309659&fm=200&gp=0.jpg'
+      store.commit('changeCodeImg', codeUrl)
     }
   }
 }
@@ -75,13 +76,14 @@ export default {
 }
 .current-show-code {
   position: absolute;
-  height: 11.6vmin;
-  width: 11.6vmin;
-  min-width: 96px;
-  min-height: 96px;
+  height: 12vmin;
+  width: 12vmin;
+  min-width: 100px;
+  min-height: 100px;
   left: 5%;
   display: block;
   z-index: -2;
+  left: 1.7vmin
 }
 .upload-demo-code {
   margin-top: 10px;

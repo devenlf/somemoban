@@ -4,7 +4,7 @@ const module = {
     bannerIsShow: true,
     bannerRoomName: '2015法拉利环球国际展-上海站',
     bannerSubTitle: '热烈欢迎来自五湖四海的广大车友',
-    BannerImg: process.env.FILE_DOMAIN + '/Uploads/Files/2015/12/08/0/635851845005372851.jpg'
+    BannerImg: 'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg'
   },
   mutations: {
     changebannerType(state, val) {

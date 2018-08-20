@@ -25,6 +25,7 @@
           <el-input v-model="carbon" placeholder="请输入副本" @input="changeDataSubTitle"></el-input>
         </div>
         <div class="up-banner-bg" v-else>
+        <img class="bannerImg" :src="changeBannerImgValue" alt="">
         <el-upload
             class="upload-demo-title"
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -41,6 +42,7 @@
 </template>
 <script>
 import store from '../store'
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -58,7 +60,8 @@ export default {
   computed: {
     isShowText: function() {
       return this.radio === 0
-    }
+    },
+    ...mapGetters(['changeBannerImgValue'])
   },
   created: function() {
     console.log(this.bannerTxt)
@@ -71,7 +74,9 @@ export default {
       console.log('上传失败')
     },
     logoUploadSuccess(file) {
-      store.commit('changeBannerImg', this.fileName)
+      console.log(this.fileName)
+      const titleUrl = 'http://images.hisupplier.com/var/userImages/201511/03/084707370756_s.jpg'
+      store.commit('changeBannerImg', titleUrl)
     },
     changeType() {
       store.commit('changebannerType', this.radio)
@@ -89,10 +94,15 @@ export default {
 }
 </script>
 <style lang="scss">
+.up-banner-bg{
+  position: relative;
+}
 .upload-demo-title {
   height: 80px;
   width: 80% !important;
   margin-left: 10%;
+  position: absolute;
+  z-index: 2;
   background: rgba(0, 0, 0, 0.57);
   button {
     width: 50% !important;
@@ -101,6 +111,14 @@ export default {
   ul {
     margin-top: 18%;
   }
+}
+.bannerImg{
+  height: 80px;
+  width: 80% !important;
+  position: absolute;
+  z-index: 0;
+  top: 0px;
+  left: 10%;
 }
 .bgset {
   width: 100%;

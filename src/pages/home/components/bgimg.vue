@@ -9,7 +9,7 @@
       <template v-for="(data,index2) in item">
         <div :key="index2" class="dataBack" :class="{'isClickStyleImg':isChooseImg(index1,index2)}" @click="addChooseStyleIndex(index1,index2,data)" >
           <img class="contentImg" src="../../../../static/image/code.png" alt="">
-          <img class="contentDataImg" :src="FileUrl+'46x46/crop_true'+data"  alt="" @click="changeBackImg(FileUrl+data)">
+          <img class="contentDataImg" :src="data"  alt="" @click="changeBackImg(data)">
         </div>
       </template>
     </el-carousel-item>
@@ -21,7 +21,7 @@
         :before-upload="beforeAvatarUpload"
         :on-error="uploadError"
         :on-success="logoUploadSuccess"
-        action="http://interactive.31huiyi.com/upload/uploadHandler"
+        action="https://jsonplaceholder.typicode.com/posts/"
         :file-list="fileList2"
         list-type="picture">
         <el-button size="small" type="primary">上传自定义图片</el-button>
@@ -56,6 +56,7 @@
     top: 5%;
     left: 5%;
     width: 90%;
+    height: 90%;
   }
 }
 .upload-demo-bg {
@@ -160,29 +161,28 @@ export default {
       index: 0,
       isUpload: false,
       currentImgBackground: 0,
-      FileUrl: process.env.FILE_DOMAIN,
       showAllTitleImg: [
-        '/Uploads/Files/2015/12/08/0/635851845005372851.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845014727807.jpeg',
-        '/Uploads/Files/2015/12/08/0/635851845021744437.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845028448221.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845040297477.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845048716889.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845055733059.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845099701593.png',
-        '/Uploads/Files/2015/12/08/0/635851845105001824.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845118879149.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845126362846.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845140706204.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845147566492.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845153491654.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845158792378.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845171888937.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845180464354.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845194186360.jpg',
-        '/Uploads/Files/2015/12/08/0/635851845206662979.jpg',
-        '/Uploads/Files/2016/01/13/0/635882785534746419.png',
-        '/Uploads/Files/2016/01/13/0/635882785806258244.png'
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845014727807.jpeg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845021744437.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845028448221.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845040297477.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845048716889.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845055733059.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845099701593.png',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845105001824.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845118879149.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845126362846.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845140706204.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845147566492.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845153491654.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845158792378.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845171888937.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845180464354.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845194186360.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845206662979.jpg',
+        'https://file.31huiyi.com/Uploads/Files/2016/01/13/0/635882785534746419.png',
+        'https://file.31huiyi.com/Uploads/Files/2016/01/13/0/635882785806258244.png'
       ],
       fileList2: []
     }
@@ -215,10 +215,11 @@ export default {
     },
     logoUploadSuccess() {
       if (!this.isUpload) {
-        this.showAllTitleImg.unshift('/Uploads/Files/2015/12/08/0/635851845005372851.jpg')
+        console.log('https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg')
+        this.showAllTitleImg.unshift('https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg')
         this.isUpload = true
       } else {
-        this.showAllTitleImg[0] = '/Uploads/Files/2015/12/08/0/635851845005372851.jpg'
+        this.showAllTitleImg[0] = 'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg'
       }
       console.log('上传成功')
     },

@@ -16,7 +16,7 @@ import store from '../store';
       </el-switch>
       </div>
        <div class="up-style-logo">
-        <img class="current-show-logo" src="../../../../static/image/636402237338100756.png"/>
+        <img class="current-show-logo" :src="changeLogoImgValue"/>
         <el-upload
             class="upload-demo-logo"
             action="https://jsonplaceholder.typicode.com/posts/"
@@ -35,6 +35,7 @@ import store from '../store';
 </template>
 <script>
 import store from '../store'
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -45,6 +46,9 @@ export default {
     }
   },
   created: function() {},
+  computed: {
+    ...mapGetters(['changeLogoImgValue'])
+  },
   methods: {
     changeLogoState() {
       store.commit('changeLogoIsShow', this.isShowLogo)
@@ -56,7 +60,10 @@ export default {
       console.log('上传失败')
     },
     logoUploadSuccess(file) {
-      store.commit('changeLogoImg', this.fileName)
+      console.log(this.fileName)
+      const ImgUrl = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534740906811&di=7a6aa63e21b4e106a8e7f8982cf342d8&imgtype=0&src=http%3A%2F%2Fpic.35pic.com%2Fnormal%2F08%2F60%2F03%2F3347542_145636238000_2.jpg'
+      store.commit('changeLogoImg', ImgUrl)
+      console.log(store)
     }
   }
 }
@@ -80,7 +87,7 @@ export default {
   min-height: 80px;
   width: 90%;
   margin-left: 4%;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.57);
   .el-upload__tip_code {
     width: 100%;
     font-size: 13px;
