@@ -51,7 +51,7 @@ export default {
   data() {
     return {
       index: 4,
-      isShowDate: true,
+      isShowDate: store.state.moduleDate.isShowDate,
       colorInit: '#ffffff',
       colorList: [
         { color: '#ffffff' },

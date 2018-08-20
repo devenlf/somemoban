@@ -1,7 +1,7 @@
 const module = {
   state: {
     isSquery: true,
-    userImgIsShow: true
+    userImgIsShow: ''
   },
   mutations: {
     changeuserImgActive(state, bool) {

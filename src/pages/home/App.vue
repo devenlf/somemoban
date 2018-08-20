@@ -47,13 +47,12 @@ import titleBanner from './components/titleBanner'
 import topcolor from './components/topcolor'
 import guideLogo from './guide-page/guide-page'
 import { mapGetters } from 'vuex'
+import dataInitFunction from './dataInit'
 export default {
   data() {
     return {
       isGuideing: false,
-      current: 0,
-      titletxt: '2015法拉利环球国际展-上海站',
-      carbon: '热烈欢迎来自五湖四海的广大车友'
+      current: 0
     }
   },
   computed: {
@@ -69,6 +68,9 @@ export default {
       'changebannerSubTitleValue',
       'changeBannerImgValue'
     ])
+  },
+  created: function() {
+    dataInitFunction()
   },
   methods: {
     addClass(index) {

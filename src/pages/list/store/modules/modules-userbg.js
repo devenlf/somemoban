@@ -1,6 +1,6 @@
 const module = {
   state: {
-    type: 0
+    type: ''
   },
   mutations: {
     changeType(state, val) {

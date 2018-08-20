@@ -16,10 +16,10 @@
       </div>
        <p class="chooseStyle">形状</p>
        <div class="choose-style-box">
-      <div class="round img-user" @click="changeShape(false)">
+      <div class="round img-user" @click="changeShape(0)">
         <img src="../../../../static/image/user1.jpg" alt="">
       </div>
-      <div class="square img-user" @click="changeShape(true)">
+      <div class="square img-user" @click="changeShape(1)">
         <img src="../../../../static/image/user1.jpg" alt="">
       </div>
       </div>
@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       index: 4,
-      isShowFaceImg: true
+      isShowFaceImg: store.state.moduleUserImg.userImgIsShow
     }
   },
   computed: {
@@ -47,7 +47,9 @@ export default {
       store.commit('setIsShowuserImg', this.isShowFaceImg)
     }
   },
-  created: function() {}
+  created: function() {
+    console.log(store.state.moduleUserImg.userImgIsShow)
+  }
 }
 </script>
 <style lang="scss">

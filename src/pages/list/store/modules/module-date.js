@@ -1,9 +1,9 @@
 import hexToRgba from '@/utils/hexToRgba.js'
 const module = {
   state: {
-    color: '#000000',
-    opacity: '30',
-    isShowDate: true,
+    color: '',
+    opacity: '',
+    isShowDate: '',
     colorRGBA: '',
     dateFormatType: 0
   },
@@ -13,6 +13,7 @@ const module = {
       state.colorRGBA = hexToRgba(newColor, state.opacity)
     },
     setOpacityDate(state, newOpacity) {
+      state.opacity = newOpacity
       state.colorRGBA = hexToRgba(state.color, newOpacity)
     },
     setIsShowDate(state, bool) {

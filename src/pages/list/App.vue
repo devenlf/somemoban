@@ -58,13 +58,13 @@ import chatUserName from './components/chat-user-name'
 import chatContent from './components/chat-content'
 import chatDate from './components/chat-date'
 import guideLogo from './guide-page/guide-page'
-
+import dataInitFunction from './dataInint'
 import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
       current: 0,
-      isGuideing: true,
+      isGuideing: false,
       isSquare: false,
       bannerText: {
         titletxt: '2015法拉利环球国际展-上海站',
@@ -93,7 +93,9 @@ export default {
       ]
     }
   },
-  created: function() {},
+  created: function() {
+    dataInitFunction()
+  },
   methods: {
     addClass(index) {
       this.current = index

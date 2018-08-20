@@ -7,7 +7,6 @@ import moduleTitle from './modules/module-title'
 import moduleTop from './modules/module-topcolor'
 
 Vue.use(Vuex)
-
 const store = new Vuex.Store({
   modules: {
     moduleImg,

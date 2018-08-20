@@ -42,7 +42,7 @@ import store from '../store'
 export default {
   data() {
     return {
-      isShowUsername: true,
+      isShowUsername: store.state.moduleUsername.isShowName,
       colorInit: '#ffffff',
       colorList: [
         { color: '#ffffff' },
@@ -65,7 +65,9 @@ export default {
     }
   },
   computed: {},
-  created: function() {},
+  created: function() {
+
+  },
   methods: {
     getColor(data) {
       store.commit('setColorName', data.color)

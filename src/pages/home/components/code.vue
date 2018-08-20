@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       index: 4,
-      isShowCode: true,
+      isShowCode: this.changeCodeIsShowValue,
       radio: 1,
       titletxt: '',
       carbon: '',
@@ -48,7 +48,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['changeCodeImgValue'])
+    ...mapGetters(['changeCodeImgValue', 'changeCodeIsShowValue'])
   },
   created: function() {},
   methods: {

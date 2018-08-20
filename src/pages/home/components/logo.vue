@@ -1,5 +1,4 @@
 
-import store from '../store';
 
 <template>
   <div class="bgset">
@@ -40,14 +39,16 @@ export default {
   data() {
     return {
       index: 4,
-      isShowLogo: true,
+      isShowLogo: '',
       fileName: '',
       fileList2: []
     }
   },
-  created: function() {},
+  created: function() {
+    this.isShowLogo = this.changeLogoIsShowValue
+  },
   computed: {
-    ...mapGetters(['changeLogoImgValue'])
+    ...mapGetters(['changeLogoImgValue', 'changeLogoIsShowValue'])
   },
   methods: {
     changeLogoState() {

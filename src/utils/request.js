@@ -2,7 +2,7 @@ require('es6-promise').polyfill()
 import axios from 'axios'
 
 const service = axios.create({
-  baseURL: process.env.BASE_API, // 动态指定
+  baseURL: process.env.YAPI_URL, // 动态指定
   timeout: 150000                  // 请求超时时间
 })
 

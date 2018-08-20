@@ -47,7 +47,7 @@ export default {
   data() {
     return {
       index: 4,
-      isShowTitle: true,
+      isShowTitle: this.changebannerIsShowValue,
       radio: 0,
       fileName: '',
       titletxt: '',
@@ -61,7 +61,7 @@ export default {
     isShowText: function() {
       return this.radio === 0
     },
-    ...mapGetters(['changeBannerImgValue'])
+    ...mapGetters(['changeBannerImgValue', 'changebannerIsShowValue'])
   },
   created: function() {
     console.log(this.bannerTxt)

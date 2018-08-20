@@ -1,14 +1,13 @@
 const module = {
   state: {
-    codeImg: 'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg',
-    codeIsShow: true
+    codeImg: '',
+    codeIsShow: ''
   },
   mutations: {
     changeCodeImg(state, imgName) {
       state.codeImg = imgName
     },
     changeCodeIsShow(state, bool) {
-      console.log(bool)
       state.codeIsShow = bool
     }
   },

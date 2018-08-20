@@ -1,9 +1,9 @@
 import hexToRgba from '@/utils/hexToRgba.js'
 const module = {
   state: {
-    color: '#000000',
-    opacity: '100',
-    isShowName: true,
+    color: '',
+    opacity: '',
+    isShowName: '',
     colorRGBA: ''
   },
   mutations: {
@@ -12,6 +12,7 @@ const module = {
       state.colorRGBA = hexToRgba(newColor, state.opacity)
     },
     setOpacityName(state, newOpacity) {
+      state.opacity = newOpacity
       state.colorRGBA = hexToRgba(state.color, newOpacity)
     },
     setIsShowName(state, bool) {
