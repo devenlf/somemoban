@@ -3,14 +3,13 @@ import hexify from '@/utils/RGBAToHex'
 import store from './store'
 
 const dataInitFunction = function() {
-  service({
+  let dataInit = ''
+  return service({
     url: 'skin/GetChatContentSkin/333',
     method: 'POST'
   })
     .then(response => {
-      console.log(1313)
-      const dataInit = response.data
-      console.log(dataInit)
+      dataInit = response.data
       // 加载对话框样式
       store.commit('changeType', dataInit.ChatsContentStyle)
       // 加载人物头像形状
@@ -32,9 +31,11 @@ const dataInitFunction = function() {
       store.commit('setDtaeTypeFormat', dateType)
       // 加载聊天内容
       const userContentFontColor = hexify(dataInit.ChatsFontColor)
-      console.log(userContentFontColor)
       store.commit('setColorContent', userContentFontColor.color)
       store.commit('setOpacityContent', userContentFontColor.opacity)
+      store.commit('setContentLoop', dataInit.UseReChat)
+      store.commit('setContentPass', dataInit.NeedVerifyToUpWall)
+      return dataInit
     })
 }
 

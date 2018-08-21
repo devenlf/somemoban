@@ -44,6 +44,7 @@
       <v-chatUserName v-show="isShow(2)"></v-chatUserName>
       <v-chatContent v-show="isShow(3)"></v-chatContent>
       <v-chatDate v-show="isShow(4)"></v-chatDate>
+      <v-submit :data="listData"></v-submit>
     </div></el-col>
   </el-row>
   <V-guideLogo v-if="isGuideing" @change-current="changeData" :currentData="current"/>
@@ -56,6 +57,7 @@ import chatBgSet from './components/chat-bg-set'
 import chatUserImg from './components/chat-user-img'
 import chatUserName from './components/chat-user-name'
 import chatContent from './components/chat-content'
+import submit from './components/submit'
 import chatDate from './components/chat-date'
 import guideLogo from './guide-page/guide-page'
 import dataInitFunction from './dataInint'
@@ -70,6 +72,7 @@ export default {
         titletxt: '2015法拉利环球国际展-上海站',
         carbon: '热烈欢迎来自五湖四海的广大车友们'
       },
+      listData: '',
       type: 1,
       chatData: [
         {
@@ -95,6 +98,9 @@ export default {
   },
   created: function() {
     dataInitFunction()
+    .then((data) => {
+      this.listData = data
+    })
   },
   methods: {
     addClass(index) {
@@ -130,7 +136,8 @@ export default {
     'v-chatUserName': chatUserName,
     'v-chatContent': chatContent,
     'v-chatDate': chatDate,
-    'V-guideLogo': guideLogo
+    'V-guideLogo': guideLogo,
+    'v-submit': submit
   }
 }
 </script>
@@ -374,6 +381,7 @@ body {
   position: relative;
 }
 .bg-right {
+  position: relative;
   background: darkcyan;
   height: 100%;
 }

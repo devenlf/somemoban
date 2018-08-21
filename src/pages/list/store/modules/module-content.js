@@ -3,7 +3,9 @@ const module = {
   state: {
     color: '#ffffff',
     opacity: '0',
-    colorRGBA: ''
+    colorRGBA: '',
+    chatLoop: '',
+    chatPass: ''
   },
   mutations: {
     setColorContent(state, newColor) {
@@ -14,6 +16,12 @@ const module = {
       state.opacity = newOpacity
       state.colorRGBA = hexToRgba(state.color, newOpacity)
     },
+    setContentLoop(state, val) {
+      state.chatLoop = val
+    },
+    setContentPass(state, val) {
+      state.chatPass = val
+    },
     customAllContent(state, value) {
       state.colorRGBA = value
     }
@@ -22,6 +30,12 @@ const module = {
   getters: {
     contentColorRGBAValue: state => {
       return state.colorRGBA
+    },
+    setContentPassValue: state => {
+      return state.chatPass
+    },
+    setContentLoopValue: state => {
+      return state.chatLoop
     }
   }
 }

@@ -31,6 +31,7 @@
       <el-switch
         class="checkTxtSwitch"
         v-model="chatLoop"
+        @change="setContentLoop"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
@@ -42,6 +43,7 @@
       <el-switch
         class="checkTxtSwitch"
         v-model="chatPass"
+        @change="setcontentPass"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
@@ -52,12 +54,13 @@
 </template>
 <script>
 import store from '../store'
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
       index: 4,
-      chatLoop: true,
-      chatPass: true,
+      chatLoop: store.state.moduleContent.chatLoop,
+      chatPass: store.state.moduleContent.chatPass,
       colorInit: '#ffffff',
       colorList: [
         { color: '#ffffff' },
@@ -83,7 +86,8 @@ export default {
   computed: {
     isShowText: function() {
       return this.radio === 1
-    }
+    },
+    ...mapGetters(['setContentPassValue', 'setContentLoopValue'])
   },
   created: function() {},
   methods: {
@@ -98,6 +102,12 @@ export default {
       if (value) {
         store.commit('setColorContent', value)
       }
+    },
+    setcontentPass() {
+      store.commit('setContentPass', this.chatPass)
+    },
+    setContentLoop() {
+      store.commit('setContentLoop', this.chatLoop)
     }
   }
 }
