@@ -2,12 +2,13 @@ import service from '@/utils/request'
 import store from './store'
 
 const dataInitFunction = function() {
-  service({
+  let dataInit = ''
+  return service({
     url: 'skin/GetWallSkin/333',
     method: 'POST'
   })
     .then(response => {
-      const dataInit = response.data
+      dataInit = response.data
       store.commit('changeBackgroundImg', dataInit.BackgroundImage)
       store.commit('changeLogoImg', dataInit.Logo)
       store.commit('changeLogoIsShow', dataInit.HideLogo)
@@ -18,6 +19,7 @@ const dataInitFunction = function() {
       store.commit('changeBannerImg', dataInit.Banner)
       store.commit('changeCodeImg', dataInit.WeiXinCodeImage)
       store.commit('changeCodeIsShow', dataInit.HideQRImg)
+      return dataInit
     })
 }
 

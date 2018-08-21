@@ -32,6 +32,7 @@
       <v-code v-show="isShow(1)"></v-code>
       <v-titleBanner v-show="isShow(2)"></v-titleBanner>
       <v-topcolor v-show="false"></v-topcolor>
+      <v-submit :data="showldDoData"></v-submit>
     </div></el-col>
   </el-row>
     <V-guideLogo v-if="isGuideing" @change-current="changeData" :currentData="current"/>
@@ -44,6 +45,7 @@ import bgimg from './components/bgimg'
 import code from './components/code'
 import logo from './components/logo'
 import titleBanner from './components/titleBanner'
+import submit from './components/submit'
 import topcolor from './components/topcolor'
 import guideLogo from './guide-page/guide-page'
 import { mapGetters } from 'vuex'
@@ -52,7 +54,8 @@ export default {
   data() {
     return {
       isGuideing: false,
-      current: 0
+      current: 0,
+      showldDoData: ''
     }
   },
   computed: {
@@ -71,6 +74,9 @@ export default {
   },
   created: function() {
     dataInitFunction()
+     .then((data) => {
+       this.showldDoData = data
+     })
   },
   methods: {
     addClass(index) {
@@ -96,7 +102,8 @@ export default {
     'v-logo': logo,
     'v-titleBanner': titleBanner,
     'v-topcolor': topcolor,
-    'V-guideLogo': guideLogo
+    'V-guideLogo': guideLogo,
+    'v-submit': submit
   }
 }
 </script>
@@ -210,6 +217,7 @@ body {
 }
 .bg-right {
   background: darkcyan;
+  position: relative;
   height: 100%;
 }
 </style>
