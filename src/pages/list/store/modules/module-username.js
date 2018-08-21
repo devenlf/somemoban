@@ -1,8 +1,8 @@
 import hexToRgba from '@/utils/hexToRgba.js'
 const module = {
   state: {
-    color: '',
-    opacity: '',
+    color: '#ffffff',
+    opacity: '0',
     isShowName: '',
     colorRGBA: ''
   },

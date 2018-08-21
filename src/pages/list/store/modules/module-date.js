@@ -1,11 +1,11 @@
 import hexToRgba from '@/utils/hexToRgba.js'
 const module = {
   state: {
-    color: '',
-    opacity: '',
+    color: '#ffffff',
+    opacity: '0',
     isShowDate: '',
     colorRGBA: '',
-    dateFormatType: 0
+    dateFormatType: 'YYYY-MM-DD HH:mm:ss'
   },
   mutations: {
     setColorDate(state, newColor) {
@@ -20,7 +20,11 @@ const module = {
       state.isShowDate = bool
     },
     setDtaeTypeFormat(state, value) {
-      state.dateFormatType = value
+      if (value) {
+        state.dateFormatType = 'YYYY年MM月DD日 HH:mm:ss'
+      } else {
+        state.dateFormatType = 'YYYY-MM-DD HH:mm:ss'
+      }
     },
     customAllDate(state, colorvalue) {
       state.colorRGBA = colorvalue
@@ -28,7 +32,7 @@ const module = {
       state.dateFormatType = 0
     }
   },
-  actions: { },
+  actions: {},
   getters: {
     dateColorRGBAValue: state => {
       return state.colorRGBA
@@ -37,7 +41,11 @@ const module = {
       return (state.isShowDate ? 'visible' : 'hidden')
     },
     dateFormatTypeValue: state => {
-      return state.dateFormatType
+      if (state.dateFormatType === 'YYYY-MM-DD HH:mm:ss') {
+        return 0
+      } else {
+        return 1
+      }
     }
   }
 }

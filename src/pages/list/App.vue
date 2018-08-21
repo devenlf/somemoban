@@ -267,7 +267,7 @@ body {
 
 .chat-date {
   cursor: pointer;
-  border: 2px solid rgba($color: #fff600, $alpha: 0) !important;
+  border: 1px dashed rgba(204, 204, 204, 0.9) !important;
   position: absolute;
   width: 30%;
   top: 20%;
