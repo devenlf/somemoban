@@ -81,30 +81,39 @@ export default {
   },
   created: function() {},
   methods: {
+    allComponent() {
+      store.commit('setIsShowDate', true)
+      store.commit('setIsShowuserImg', true)
+      store.commit('setIsShowName', true)
+    },
     getType(id) {
       switch (id) {
         case 0:
           store.commit('customAllContent', 'rgba(255, 255, 255, 1)')
           store.commit('customAllDate', 'rgba(255, 255, 255, 0.5)')
           store.commit('customAllName', 'rgba(255, 255, 255, 0.5)')
+          this.allComponent()
           store.commit('customAllImg', false)
           break
         case 1:
           store.commit('customAllContent', 'rgba(255, 255, 255, 1)')
           store.commit('customAllDate', 'rgba(255, 255, 255, 0.5)')
           store.commit('customAllName', 'rgba(255, 255, 255, 0.5)')
+          this.allComponent()
           store.commit('customAllImg', false)
           break
         case 2:
           store.commit('customAllContent', 'rgba(104, 129, 156, 1)')
           store.commit('customAllDate', 'rgba(104, 129, 156, 0.6)')
           store.commit('customAllName', 'rgba(104, 129, 156, 0.6)')
+          this.allComponent()
           store.commit('customAllImg', true)
           break
         case 3:
           store.commit('customAllContent', 'rgba(172, 104, 106, 1)')
           store.commit('customAllDate', 'rgba(172, 104, 106, 0.6)')
           store.commit('customAllName', 'rgba(172, 104, 106, 0.6)')
+          this.allComponent()
           store.commit('customAllImg', false)
           break
         default:

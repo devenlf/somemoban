@@ -47,6 +47,7 @@
 </template>
 <script>
 import store from '../store'
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -81,6 +82,12 @@ export default {
   computed: {
     isShowText: function() {
       return this.radio === 1
+    },
+    ...mapGetters(['dateIsShowBg'])
+  },
+  watch: {
+    dateIsShowBg() {
+      this.isShowDate = store.state.moduleDate.isShowDate
     }
   },
   created: function() {},

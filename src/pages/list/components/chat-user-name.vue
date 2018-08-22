@@ -39,6 +39,7 @@
 </template>
 <script>
 import store from '../store'
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -64,7 +65,14 @@ export default {
       colorOpcity: 50
     }
   },
-  computed: {},
+  computed: {
+    ...mapGetters(['nameIsShowBg'])
+  },
+  watch: {
+    nameIsShowBg() {
+      this.isShowUsername = store.state.moduleUsername.isShowName
+    }
+  },
   created: function() {
 
   },
