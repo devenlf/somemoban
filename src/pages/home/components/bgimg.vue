@@ -212,16 +212,23 @@ export default {
     },
     uploadError() {
       console.log('上传失败')
+      this.fileList2 = []
     },
     logoUploadSuccess() {
       if (!this.isUpload) {
-        console.log('https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg')
-        this.showAllTitleImg.unshift('https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg')
+        console.log(
+          'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg'
+        )
+        this.showAllTitleImg.unshift(
+          'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg'
+        )
         this.isUpload = true
       } else {
-        this.showAllTitleImg[0] = 'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg'
+        this.showAllTitleImg[0] =
+          'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg'
       }
       console.log('上传成功')
+      this.fileList2 = []
     },
     addChooseStyleIndex(index1, index2, data) {
       const index = index1 * 8 + index2

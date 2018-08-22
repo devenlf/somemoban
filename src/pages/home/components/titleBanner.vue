@@ -72,11 +72,13 @@ export default {
     },
     uploadError() {
       console.log('上传失败')
+      this.fileList2 = []
     },
     logoUploadSuccess(file) {
       console.log(this.fileName)
       const titleUrl = 'http://images.hisupplier.com/var/userImages/201511/03/084707370756_s.jpg'
       store.commit('changeBannerImg', titleUrl)
+      this.fileList2 = []
     },
     changeType() {
       store.commit('changebannerType', this.radio)

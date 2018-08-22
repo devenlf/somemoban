@@ -60,11 +60,13 @@ export default {
     },
     uploadError() {
       console.log('上传失败')
+      this.fileList2 = []
     },
     logoUploadSuccess(file) {
       console.log(this.fileName)
       const codeUrl = 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1855790068,611309659&fm=200&gp=0.jpg'
       store.commit('changeCodeImg', codeUrl)
+      this.fileList2 = []
     }
   }
 }

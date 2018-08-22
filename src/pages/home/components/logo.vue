@@ -59,12 +59,14 @@ export default {
     },
     uploadError() {
       console.log('上传失败')
+      this.fileList2 = []
     },
     logoUploadSuccess(file) {
       console.log(this.fileName)
       const ImgUrl = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534740906811&di=7a6aa63e21b4e106a8e7f8982cf342d8&imgtype=0&src=http%3A%2F%2Fpic.35pic.com%2Fnormal%2F08%2F60%2F03%2F3347542_145636238000_2.jpg'
       store.commit('changeLogoImg', ImgUrl)
       console.log(store)
+      this.fileList2 = []
     }
   }
 }
