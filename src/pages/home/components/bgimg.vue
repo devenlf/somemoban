@@ -216,9 +216,6 @@ export default {
     },
     logoUploadSuccess() {
       if (!this.isUpload) {
-        console.log(
-          'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg'
-        )
         this.showAllTitleImg.unshift(
           'https://file.31huiyi.com/Uploads/Files/2015/12/08/0/635851845005372851.jpg'
         )
