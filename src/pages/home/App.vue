@@ -64,9 +64,9 @@ export default {
     dataInitFunction().then(data => {
       this.showldDoData = data
     })
-    if (!Cookies.get('EY')) {
+    if (!Cookies.get('HM')) {
       this.isGuideing = true
-      Cookies.set('EY', { foo: 'bar' }, { expires: 7, path: '' })
+      Cookies.set('HM', { foo: 'bar' }, { expires: 7, path: '' })
     } else {
       this.isGuideing = false
     }
