@@ -50,11 +50,22 @@ export default {
       isShowTitle: '',
       radio: 0,
       fileName: '',
-      titletxt: '',
+      titletxt: this.$store.state.moduleTitle.bannerRoomName,
       carbon: '',
       fileList2: [
       ]
     }
+  },
+  watch: {
+    changebannerRoomNameValue() {
+      this.titletxt = this.$store.state.moduleTitle.bannerRoomName
+    },
+    changebannerSubTitleValue() {
+      this.carbon = this.$store.state.moduleTitle.bannerSubTitle
+    }
+  },
+  mounted: function() {
+    this.isShowTitle = !!this.changebannerIsShowValue
   },
   computed: {
     isShowText: function() {
@@ -62,12 +73,7 @@ export default {
     },
     ...mapGetters(['changeBannerImgValue', 'changebannerIsShowValue', 'changebannerRoomNameValue', 'changebannerSubTitleValue'])
   },
-  created: function() {
-    this.isShowTitle = !!this.changebannerIsShowValue
-    console.log(this.changebannerRoomNameValue)
-    this.titletxt = this.changebannerRoomNameValue
-    this.carbon = this.changebannerSubTitleValue
-  },
+
   methods: {
     beforeAvatarUpload(file) {
       this.fileName = file
