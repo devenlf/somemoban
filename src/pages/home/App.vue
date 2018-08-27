@@ -200,7 +200,8 @@ body {
 }
 .code {
   position: absolute;
-  width: 5%;
+  width: 8vmin;
+  height: 8vmin;
   left: 90%;
   top: 10%;
   border: 1px dashed #cccccc;
