@@ -38,7 +38,7 @@ const module = {
       return state.colorRGBA
     },
     dateIsShowBg: state => {
-      return (state.isShowDate ? 'visible' : 'hidden')
+      return (!state.isShowDate ? 'visible' : 'hidden')
     },
     dateFormatTypeValue: state => {
       if (state.dateFormatType === 'YYYY-MM-DD HH:mm:ss') {

@@ -62,6 +62,7 @@ import chatDate from './components/chat-date'
 import guideLogo from './guide-page/guide-page'
 import dataInitFunction from './dataInint'
 import { mapGetters } from 'vuex'
+import Cookies from 'js-cookie'
 export default {
   data() {
     return {
@@ -101,6 +102,12 @@ export default {
     .then((data) => {
       this.listData = data
     })
+    if (!Cookies.get('LS')) {
+      this.isGuideing = true
+      Cookies.set('LS', { foo: 'bar' }, { expires: 7, path: '' })
+    } else {
+      this.isGuideing = false
+    }
   },
   methods: {
     addClass(index) {

@@ -16,7 +16,7 @@ const module = {
       return state.logoImg
     },
     changeLogoIsShowValue: state => {
-      return state.logoIsShow ? 'visible' : 'hidden'
+      return !state.logoIsShow ? 'visible' : 'hidden'
     }
   }
 }

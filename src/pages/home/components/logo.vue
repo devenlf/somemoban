@@ -45,14 +45,14 @@ export default {
     }
   },
   created: function() {
-    this.isShowLogo = this.changeLogoIsShowValue
+    this.isShowLogo = !!this.changeLogoIsShowValue
   },
   computed: {
     ...mapGetters(['changeLogoImgValue', 'changeLogoIsShowValue'])
   },
   methods: {
     changeLogoState() {
-      store.commit('changeLogoIsShow', this.isShowLogo)
+      store.commit('changeLogoIsShow', !this.isShowLogo)
     },
     beforeAvatarUpload(file) {
       this.fileName = file

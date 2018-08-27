@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       index: 4,
-      isShowDate: store.state.moduleDate.isShowDate,
+      isShowDate: !store.state.moduleDate.isShowDate,
       colorInit: '#ffffff',
       colorList: [
         { color: '#ffffff' },
@@ -87,7 +87,7 @@ export default {
   },
   watch: {
     dateIsShowBg() {
-      this.isShowDate = store.state.moduleDate.isShowDate
+      this.isShowDate = !store.state.moduleDate.isShowDate
     }
   },
   created: function() {},
@@ -100,7 +100,7 @@ export default {
       return val / 100
     },
     changeDateIsShow() {
-      store.commit('setIsShowDate', this.isShowDate)
+      store.commit('setIsShowDate', !this.isShowDate)
     },
     addOrChangeColor(value) {
       if (value) {

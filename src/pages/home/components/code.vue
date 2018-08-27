@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       index: 4,
-      isShowCode: this.changeCodeIsShowValue,
+      isShowCode: '',
       radio: 1,
       titletxt: '',
       carbon: '',
@@ -47,13 +47,15 @@ export default {
       fileName: ''
     }
   },
+  created: function() {
+    this.isShowCode = !!this.changeCodeIsShowValue
+  },
   computed: {
     ...mapGetters(['changeCodeImgValue', 'changeCodeIsShowValue'])
   },
-  created: function() {},
   methods: {
     changeLogoState() {
-      store.commit('changeCodeIsShow', this.isShowCode)
+      store.commit('changeCodeIsShow', !this.isShowCode)
     },
     beforeAvatarUpload(file) {
       this.fileName = file

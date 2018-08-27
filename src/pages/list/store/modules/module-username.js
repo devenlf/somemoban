@@ -29,7 +29,7 @@ const module = {
       return state.colorRGBA
     },
     nameIsShowBg: state => {
-      return (state.isShowName ? 'visible' : 'hidden')
+      return (!state.isShowName ? 'visible' : 'hidden')
     }
   }
 }

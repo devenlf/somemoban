@@ -28,7 +28,7 @@ const module = {
       return !state.bannerType
     },
     changebannerIsShowValue: state => {
-      return state.bannerIsShow ? 'visible' : 'hidden'
+      return !state.bannerIsShow ? 'visible' : 'hidden'
     },
     changebannerRoomNameValue: state => {
       return state.bannerRoomName

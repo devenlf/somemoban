@@ -50,12 +50,25 @@ import topcolor from './components/topcolor'
 import guideLogo from './guide-page/guide-page'
 import { mapGetters } from 'vuex'
 import dataInitFunction from './dataInit'
+import Cookies from 'js-cookie'
+
 export default {
   data() {
     return {
       isGuideing: false,
       current: 0,
       showldDoData: ''
+    }
+  },
+  created: function() {
+    dataInitFunction().then(data => {
+      this.showldDoData = data
+    })
+    if (!Cookies.get('EY')) {
+      this.isGuideing = true
+      Cookies.set('EY', { foo: 'bar' }, { expires: 7, path: '' })
+    } else {
+      this.isGuideing = false
     }
   },
   computed: {
@@ -71,12 +84,6 @@ export default {
       'changebannerSubTitleValue',
       'changeBannerImgValue'
     ])
-  },
-  created: function() {
-    dataInitFunction()
-     .then((data) => {
-       this.showldDoData = data
-     })
   },
   methods: {
     addClass(index) {
@@ -124,12 +131,12 @@ body {
 .styleborder {
   border: 2px solid #fff600 !important;
 }
-.banner-img{
+.banner-img {
   width: 100%;
   height: 100%;
-  display: block
+  display: block;
 }
-.banner-content{
+.banner-content {
   height: 100%;
 }
 .el-row {

@@ -43,7 +43,7 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      isShowUsername: store.state.moduleUsername.isShowName,
+      isShowUsername: !store.state.moduleUsername.isShowName,
       colorInit: '#ffffff',
       colorList: [
         { color: '#ffffff' },
@@ -70,7 +70,7 @@ export default {
   },
   watch: {
     nameIsShowBg() {
-      this.isShowUsername = store.state.moduleUsername.isShowName
+      this.isShowUsername = !store.state.moduleUsername.isShowName
     }
   },
   created: function() {
@@ -81,7 +81,7 @@ export default {
       store.commit('setColorName', data.color)
     },
     userNameIsShow() {
-      store.commit('setIsShowName', this.isShowUsername)
+      store.commit('setIsShowName', !this.isShowUsername)
     },
     formatTooltip(val) {
       store.commit('setOpacityName', val)

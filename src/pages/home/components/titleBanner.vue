@@ -47,13 +47,12 @@ export default {
   data() {
     return {
       index: 4,
-      isShowTitle: this.changebannerIsShowValue,
+      isShowTitle: '',
       radio: 0,
       fileName: '',
       titletxt: '',
       carbon: '',
       fileList2: [
-
       ]
     }
   },
@@ -61,10 +60,13 @@ export default {
     isShowText: function() {
       return this.radio === 0
     },
-    ...mapGetters(['changeBannerImgValue', 'changebannerIsShowValue'])
+    ...mapGetters(['changeBannerImgValue', 'changebannerIsShowValue', 'changebannerRoomNameValue', 'changebannerSubTitleValue'])
   },
   created: function() {
-    console.log(this.bannerTxt)
+    this.isShowTitle = !!this.changebannerIsShowValue
+    console.log(this.changebannerRoomNameValue)
+    this.titletxt = this.changebannerRoomNameValue
+    this.carbon = this.changebannerSubTitleValue
   },
   methods: {
     beforeAvatarUpload(file) {
@@ -90,7 +92,7 @@ export default {
       store.commit('changebannerSubTitle', this.carbon)
     },
     changeTitleShow() {
-      store.commit('changebannerIsShow', this.isShowTitle)
+      store.commit('changebannerIsShow', !this.isShowTitle)
     }
   }
 }

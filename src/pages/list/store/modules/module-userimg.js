@@ -20,7 +20,7 @@ const module = {
       return state.isSquery
     },
     userImgIsShowBg: state => {
-      return (state.userImgIsShow ? 'visible' : 'hidden')
+      return (!state.userImgIsShow ? 'visible' : 'hidden')
     }
   }
 }

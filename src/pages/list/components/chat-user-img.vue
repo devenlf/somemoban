@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       index: 4,
-      isShowFaceImg: store.state.moduleUserImg.userImgIsShow
+      isShowFaceImg: !store.state.moduleUserImg.userImgIsShow
     }
   },
   computed: {
@@ -43,7 +43,7 @@ export default {
   },
   watch: {
     userImgIsShowBg() {
-      this.isShowFaceImg = store.state.moduleUserImg.userImgIsShow
+      this.isShowFaceImg = !store.state.moduleUserImg.userImgIsShow
     }
   },
   methods: {
@@ -51,7 +51,7 @@ export default {
       store.commit('changeuserImgActive', bool)
     },
     userImgIsShow() {
-      store.commit('setIsShowuserImg', this.isShowFaceImg)
+      store.commit('setIsShowuserImg', !this.isShowFaceImg)
     }
   },
   created: function() {

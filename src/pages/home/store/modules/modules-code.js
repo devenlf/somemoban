@@ -16,7 +16,7 @@ const module = {
       return state.codeImg
     },
     changeCodeIsShowValue: state => {
-      return state.codeIsShow ? 'visible' : 'hidden'
+      return !state.codeIsShow ? 'visible' : 'hidden'
     }
   }
 }
