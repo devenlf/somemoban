@@ -4,13 +4,13 @@
   <el-col :span="19">
     <div class="grid-content bg-left">
     <div class="bgimgby">
-      <img class="bgimg" src="../../../static/image/635869062716808792.jpg" alt="">
+      <img class="bgimg" :src="bgImgUrl" alt="">
     </div>
     <div class="logo">
-      <img class="logoimg" src="../../../static/image/636402237338100756.png" alt="">
+      <img class="logoimg" :src="logoImgUrl" alt="">
     </div>
     <div class="code" >
-        <img class="bgimg" src="../../../static/image/code.png" alt="">
+        <img class="bgimg" :src="codeImgUrl" alt="">
     </div>
        <div class="banner" >
       <h2>{{bannerText.titletxt}}</h2>
@@ -21,17 +21,17 @@
     <div class="chat-conenet-all">
       <template v-for="(data,index) in chatData">
         <div class="chat-box" :class="userBgTypeChange" :key="index">
-        <div class="chat-bg" :class="{'styleborder':isShow(0),'square':isShow(0)}"  @click="addClass(0)"></div>
-        <div class="user-img" :class="{'styleborder':isShow(1)}" :style="{'border-radius':(userImgShaepe?'0%':'50%')}"  @click="addClass(1)">
+        <div class="chat-bg" :class="{ 'styleborder':isShow(0),'square':isShow(0)}"  @click="addClass(0)"></div>
+        <div class="user-img" :class="{'dashedLine':userImgBorder,'styleborder':isShow(1)}" :style="{'border-radius':(userImgShaepe?'0%':'50%')}"  @click="addClass(1)">
           <img :style="{'visibility':userImgIsShowBg}" :src="data.userimg" alt="">
         </div>
-        <div class="user-name" :class="{'styleborder':isShow(2)}" :style="{color:nameColorRGBAValue}" @click="addClass(2)">
+        <div class="user-name" :class="{'dashedLine':userNameBorder,'styleborder':isShow(2)}" :style="{color:nameColorRGBAValue}" @click="addClass(2)">
           <span :style="{'visibility':nameIsShowBg}">{{data.username}}</span>
         </div>
         <div class="chat-content" :class="{'styleborder':isShow(3)}" :style="{color:contentColorRGBAValue}"  @click="addClass(3)">
           <span>{{data.chatContent}}</span>
         </div>
-        <div class="chat-date" :class="{'styleborder':isShow(4)}" :style="{color:dateColorRGBAValue}"  @click="addClass(4)">
+        <div class="chat-date" :class="{'dashedLine':userDateBorber,'styleborder':isShow(4)}" :style="{color:dateColorRGBAValue}"  @click="addClass(4)">
           <span :style="{'visibility':dateIsShowBg}">{{data.date[dateFormatTypeValue]}}</span>
         </div>
         </div>
@@ -61,6 +61,7 @@ import submit from './components/submit'
 import chatDate from './components/chat-date'
 import guideLogo from './guide-page/guide-page'
 import dataInitFunction from './dataInint'
+import dataGetHome from './getBigHome'
 import { mapGetters } from 'vuex'
 import Cookies from 'js-cookie'
 export default {
@@ -73,6 +74,9 @@ export default {
         titletxt: '2015法拉利环球国际展-上海站',
         carbon: '热烈欢迎来自五湖四海的广大车友们'
       },
+      bgImgUrl: '',
+      logoImgUrl: '',
+      codeImgUrl: '',
       listData: '',
       type: 1,
       chatData: [
@@ -94,12 +98,33 @@ export default {
           date: ['2017-03-27 16:25:01', '2017年1月23日 21:23:00'],
           chatContent: '预告预告，前方高能！'
         }
-      ]
+      ],
+      userImgBorder: '',
+      userDateBorber: '',
+      userNameBorder: ''
     }
   },
+  watch: {
+    userImgIsShowBg: function() {
+      this.userImgBorder = this.userImgIsShowBg === 'hidden'
+    },
+    dateIsShowBg: function() {
+      this.userDateBorber = this.dateIsShowBg === 'hidden'
+    },
+    nameIsShowBg: function() {
+      this.userNameBorder = this.nameIsShowBg === 'hidden'
+    }
+
+  },
   created: function() {
-    dataInitFunction()
-    .then((data) => {
+    dataGetHome().then(data => {
+      this.bgImgUrl = data.BackgroundImage
+      this.logoImgUrl = data.Logo
+      this.codeImgUrl = data.WeiXinCodeImage
+      this.bannerText.titletxt = data.RoomName
+      this.bannerText.carbon = data.SubTitle
+    })
+    dataInitFunction().then(data => {
       this.listData = data
     })
     if (!Cookies.get('LS')) {
@@ -229,7 +254,11 @@ body {
   top: 0.5%;
   margin-top: 1.5%;
   position: relative;
-  border: 1px dashed rgba($color: #cccccc, $alpha: 0.9) !important;
+  
+}
+
+.dashedLine{
+  border: 1px dashed rgba($color: #cccccc, $alpha: 0.9);
 }
 
 .user-img {
@@ -240,7 +269,6 @@ body {
   top: 47%;
   left: 8%;
   overflow: hidden;
-  border: 1px dashed rgba($color: #cccccc, $alpha: 0.9) !important;
   img {
     width: 100%;
     display: block;
@@ -250,7 +278,6 @@ body {
 .user-name {
   cursor: pointer;
   position: absolute;
-  border: 1px dashed rgba($color: #cccccc, $alpha: 0.9) !important;
   width: 20%;
   top: 20%;
   left: 16%;
@@ -270,7 +297,6 @@ body {
   width: 62%;
   top: 42%;
   left: 16%;
-  border: 1px dashed rgba($color: #cccccc, $alpha: 0.9) !important;
   span {
     font-size: 3.6vmin;
     margin-top: 0px;
@@ -281,7 +307,6 @@ body {
 
 .chat-date {
   cursor: pointer;
-  border: 1px dashed rgba(204, 204, 204, 0.9) !important;
   position: absolute;
   width: 30%;
   top: 20%;

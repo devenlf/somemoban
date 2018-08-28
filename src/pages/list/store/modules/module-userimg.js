@@ -12,7 +12,7 @@ const module = {
     },
     customAllImg(state, bool) {
       state.isSquery = bool
-      state.userImgIsShow = true
+      state.userImgIsShow = false
     }
   },
   getters: {

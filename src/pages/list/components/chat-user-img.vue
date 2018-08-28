@@ -9,17 +9,17 @@
       <span class="cueColor" v-else>隐藏</span>
         <el-switch
         v-model="isShowFaceImg"
-        @change="userImgIsShow"
+        @change="userImgIsShowActive"
         active-color="#409EFF"
         inactive-color="#dcdfe6">
       </el-switch>
       </div>
        <p class="chooseStyle">形状</p>
        <div class="choose-style-box">
-      <div class="round img-user" @click="changeShape(0)">
+      <div class="round img-user" :class="{BoxSelected:!userImgShaepe}" @click="changeShape(0)">
         <img src="../../../../static/image/user1.jpg" alt="">
       </div>
-      <div class="square img-user" @click="changeShape(1)">
+      <div class="square img-user" :class="{BoxSelected:userImgShaepe}" @click="changeShape(1)">
         <img src="../../../../static/image/user1.jpg" alt="">
       </div>
       </div>
@@ -39,10 +39,11 @@ export default {
     isShowText: function() {
       return this.radio === 1
     },
-    ...mapGetters(['userImgIsShowBg'])
+    ...mapGetters(['userImgIsShowBg', 'userImgShaepe'])
   },
   watch: {
     userImgIsShowBg() {
+      console.log(store.state.moduleUserImg.userImgIsShow)
       this.isShowFaceImg = !store.state.moduleUserImg.userImgIsShow
     }
   },
@@ -50,7 +51,7 @@ export default {
     changeShape(bool) {
       store.commit('changeuserImgActive', bool)
     },
-    userImgIsShow() {
+    userImgIsShowActive() {
       store.commit('setIsShowuserImg', !this.isShowFaceImg)
     }
   },
@@ -111,6 +112,10 @@ export default {
     width: 100%;
   }
 }
+.BoxSelected{
+  border: 2px solid rgb(64 , 158 , 255)
+}
+
 .round {
   border-radius: 38px;
 }

@@ -82,9 +82,9 @@ export default {
   created: function() {},
   methods: {
     allComponent() {
-      store.commit('setIsShowDate', true)
-      store.commit('setIsShowuserImg', true)
-      store.commit('setIsShowName', true)
+      store.commit('setIsShowDate', false)
+      store.commit('setIsShowuserImg', false)
+      store.commit('setIsShowName', false)
     },
     getType(id) {
       switch (id) {
