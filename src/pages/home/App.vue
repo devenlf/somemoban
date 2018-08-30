@@ -2,16 +2,20 @@
 <div class="content-back">
   <el-row >
   <el-col :span="19"><div class="grid-content bg-left">
-    <div class="bgimgby" :class="{'styleborder':isShow(3)}"  @click="addClass(3)">
+    <div class="bgimgby" :class="{'styleborderRed':isRedShow(3),'styleborderYellow':isYellowShow(3)}"  @click="addClass(3)">
+      <div class="title" v-if="isRedShow(3)">大屏显示</div>
       <img class="bgimg" :src="changeBackgroundImgValue" alt="">
     </div>
-    <div class="logo" :class="{'styleborder':isShow(0),'prepose-style':isShow(0)}"  @click="addClass(0)">
+    <div class="logo" :class="{'styleborderRed':isRedShow(0),'styleborderYellow':isYellowShow(0),'prepose-style':isShow(0)}"  @click="addClass(0)">
+      <div class="title" v-if="isRedShow(0)">Logo</div>
       <img :style="{'visibility':changeLogoIsShowValue}" class="logoimg" :src="changeLogoImgValue" alt="">
     </div>
-    <div class="code" :class="{'styleborder':isShow(1),'prepose-style':isShow(1)}"  @click="addClass(1)">
+    <div class="code" :class="{'styleborderRed':isRedShow(1),'styleborderYellow':isYellowShow(1),'prepose-style':isShow(1)}"  @click="addClass(1)">
+      <div class="title" v-if="isRedShow(1)">二维码</div>
         <img :style="{'visibility':changeCodeIsShowValue}" class="codeimg" :src="changeCodeImgValue" alt="">
     </div>
-       <div class="banner" :class="{'styleborder':isShow(2),'prepose-style':isShow(2)}"  @click="addClass(2)">
+       <div class="banner" :class="{'styleborderRed':isRedShow(2),'styleborderYellow':isYellowShow(2),'prepose-style':isShow(2)}"  @click="addClass(2)">
+         <div class="title" v-if="isRedShow(2)">会议标题</div>
          <div class="banner-content" :style="{'visibility':changebannerIsShowValue}">
                  <template v-if="changebannerTypeValue">
                     <h2>{{changebannerRoomNameValue}}</h2>
@@ -23,7 +27,7 @@
          </div>
 
     </div>
-    <!-- <div class="foreground" v-if="topIsShowBg" :class="{'styleborder':isShow(3),'prepose-style':isShow(3)}" :style="{background:topColorRGBAValue}" @click="addClass(3)"></div> -->
+    <!-- <div class="foreground" v-if="topIsShowBg" :class="{'styleborderRed':isShow(3),'prepose-style':isShow(3)}" :style="{background:topColorRGBAValue}" @click="addClass(3)"></div> -->
  
     </div></el-col>
   <el-col :span="5"><div class="grid-content bg-right">
@@ -50,12 +54,12 @@ import topcolor from './components/topcolor'
 import guideLogo from './guide-page/guide-page'
 import { mapGetters } from 'vuex'
 import dataInitFunction from './dataInit'
-import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
 
 export default {
   data() {
     return {
-      isGuideing: false,
+      isGuideing: true,
       current: 0,
       showldDoData: ''
     }
@@ -64,12 +68,12 @@ export default {
     dataInitFunction().then(data => {
       this.showldDoData = data
     })
-    if (!Cookies.get('HM')) {
-      this.isGuideing = true
-      Cookies.set('HM', { foo: 'bar' }, { expires: 7, path: '' })
-    } else {
-      this.isGuideing = false
-    }
+    // if (!Cookies.get('HM')) {
+    //   this.isGuideing = true
+    //   Cookies.set('HM', { foo: 'bar' }, { expires: 7, path: '' })
+    // } else {
+    //   this.isGuideing = false
+    // }
   },
   computed: {
     ...mapGetters([
@@ -91,6 +95,16 @@ export default {
     },
     isShow(id) {
       return this.current === id
+    },
+    isRedShow(id) {
+      if (!this.isGuideing) {
+        return this.current === id
+      }
+    },
+    isYellowShow(id) {
+      if (this.isGuideing) {
+        return this.current === id
+      }
     },
     changeTxt(data) {
       this.bannerText[data.type] = data.value
@@ -128,8 +142,11 @@ body {
 .prepose-style {
   z-index: 99;
 }
-.styleborder {
+.styleborderYellow {
   border: 2px solid #fff600 !important;
+}
+.styleborderRed {
+  border: 2px solid #ff6c00 !important;
 }
 .banner-img {
   width: 100%;
@@ -152,6 +169,17 @@ body {
   border: 1px dashed #cccccc;
   top: 10%;
   left: 6%;
+  .title {
+    position: absolute;
+    top: -4vmin;
+    padding: 0 1vmin;
+    height: 3vmin;
+    line-height: 3vmin;
+    font-size: 1.5vmin;
+    text-align: center;
+    background: #ff6c00;
+    color: white;
+  }
   img {
     width: 100%;
     height: 100%;
@@ -178,6 +206,17 @@ body {
   top: 13vh;
   left: 50%;
   text-align: center;
+   .title {
+    position: absolute;
+    top: -4vmin;
+    padding: 0 1vmin;
+    height: 3vmin;
+    line-height: 3vmin;
+    font-size: 1.5vmin;
+    text-align: center;
+    background: #ff6c00;
+    color: white;
+  }
   h2 {
     margin: 0px;
     color: white;
@@ -199,6 +238,17 @@ body {
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
+  .title {
+    position: absolute;
+    top: -4vmin;
+    padding: 0 1vmin;
+    height: 3vmin;
+    line-height: 3vmin;
+    font-size: 1.5vmin;
+    text-align: center;
+    background: #ff6c00;
+    color: white;
+  }
   img {
     width: 100%;
     height: 100%;
@@ -212,6 +262,17 @@ body {
   left: 90%;
   top: 10%;
   border: 1px dashed #cccccc;
+  .title {
+    position: absolute;
+    top: -4vmin;
+    padding: 0 1vmin;
+    height: 3vmin;
+    line-height: 3vmin;
+    font-size: 1.5vmin;
+    text-align: center;
+    background: #ff6c00;
+    color: white;
+  }
   img {
     display: block;
     margin: 10%;
